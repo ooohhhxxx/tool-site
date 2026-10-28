@@ -22,12 +22,18 @@ nav a.link:hover{color:#fff}
 .meta{margin-top:14px;font-size:13px;color:#64748b}
 .section-title{text-align:center;font-size:30px;margin:60px 0 10px;color:#f1f5f9}
 .section-sub{text-align:center;color:#64748b;margin-bottom:36px}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto;padding:0 20px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:1100px;margin:0 auto;padding:0 20px}
 .card{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:30px;transition:.2s}
 .card:hover{transform:translateY(-4px);border-color:#38bdf8}
 .card .icon{font-size:40px}
 .card h3{margin:14px 0 10px;font-size:20px;color:#f1f5f9}
 .card ul{margin-top:10px;padding-left:20px;color:#94a3b8;font-size:14px}
+.updates{max-width:800px;margin:0 auto;padding:0 20px}
+.updates .row{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid #1e293b}
+.updates .tag{flex:0 0 64px;height:26px;line-height:26px;text-align:center;border-radius:6px;font-size:12px;font-weight:bold;background:#1e3a8a;color:#93c5fd}
+.updates .tag.new{background:#064e3b;color:#6ee7b7}
+.updates .tag.fix{background:#4c1d24;color:#fca5a5}
+.updates .txt{color:#cbd5e1;font-size:15px}
 .steps{max-width:800px;margin:0 auto;padding:0 20px}
 .step{display:flex;gap:16px;margin-bottom:22px}
 .step .num{flex:0 0 36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold}
@@ -42,6 +48,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <div class="logo">🛠 调试工具</div>
   <div>
     <a class="link" href="#features">功能介绍</a>
+    <a class="link" href="#changelog">更新内容</a>
     <a class="link" href="#usage">使用方法</a>
     <a class="link" href="#download">立即下载</a>
   </div>
@@ -52,42 +59,70 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="./UltimateTool.exe">⬇ 立即免费下载</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.0 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.1 ｜ 更新于 2026-10-28 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
 </header>
 
-<h2 class="section-title" id="features">三大核心功能</h2>
+<h2 class="section-title" id="features">核心功能</h2>
 <p class="section-sub">一个软件，搞定多种调试需求</p>
 <div class="features">
   <div class="card">
     <div class="icon">🖥️</div>
     <h3>SSH 远程管理</h3>
     <ul>
-      <li>服务器连接记录保存，一键登录</li>
-      <li>可视化远程文件上传 / 下载</li>
-      <li>内置终端，支持命令自动补全</li>
-      <li>大文件传输进度条显示</li>
+      <li>连接记录保存，账号密码加密存储，一键登录</li>
+      <li>远程文件可视化浏览，路径栏可直接输入跳转</li>
+      <li>支持多选批量上传，右键菜单下载 / 上传到当前目录</li>
+      <li>内置交互终端：直接在终端区打字，Tab 补全、↑↓ 历史</li>
+      <li>终端字号可缩放，支持一键保存终端输出</li>
     </ul>
   </div>
   <div class="card">
     <div class="icon">🔌</div>
     <h3>Modbus TCP 调试</h3>
     <ul>
-      <li>支持 01/02/03/04/05/06/15/16 功能码</li>
-      <li>寄存器实时监控表</li>
-      <li>自动轮询刷新，在线修改数值</li>
-      <li>报文日志记录，方便排错</li>
+      <li>快速读写支持 01 / 03 / 05 / 06 功能码</li>
+      <li>寄存器实时监控表，支持 01 / 02 / 03 / 04 四种区域</li>
+      <li>连续地址自动合并读取，几百个点位轮询也不卡</li>
+      <li>数值可切十进制 / 十六进制 / 有符号 16 位查看</li>
+      <li>双击监控行即可改写数值，报文日志全程留痕</li>
     </ul>
   </div>
   <div class="card">
     <div class="icon">🔧</div>
     <h3>串口调试工具</h3>
     <ul>
-      <li>自动识别串口，常用波特率齐全</li>
-      <li>HEX 发送 / 接收</li>
-      <li>时间戳显示、收发字节统计</li>
-      <li>快捷命令按钮</li>
+      <li>自动识别串口并显示设备描述，常用波特率齐全</li>
+      <li>HEX 发送 / 接收，自动校验十六进制格式</li>
+      <li>接收编码可选 UTF-8 / GBK，中文设备不再乱码</li>
+      <li>时间戳、收发字节统计、暂停显示</li>
+      <li>发送内容支持 ↑↓ 回翻历史，重复下发不用重敲</li>
     </ul>
   </div>
+  <div class="card">
+    <div class="icon">🧩</div>
+    <h3>插件扩展</h3>
+    <ul>
+      <li>内置示例插件：批量命令、寄存器扫描、HEX 收发助手</li>
+      <li>插件可自带操作界面，直接嵌在软件里运行</li>
+      <li>支持启用 / 禁用 / 重载，任务可随时中断</li>
+      <li>把插件文件放进用户目录即可自动识别</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="section-title" id="changelog">v1.1 更新内容</h2>
+<p class="section-sub">2026-10-28 发布</p>
+<div class="updates">
+  <div class="row"><div class="tag new">体验</div><div class="txt">全新浅色界面：分组更清晰，主操作按钮高亮，长时间看屏幕更舒服。</div></div>
+  <div class="row"><div class="tag new">体验</div><div class="txt">适配高分辨率屏幕，字体锐利不发虚；窗口大小与位置会自动记住。</div></div>
+  <div class="row"><div class="tag new">新增</div><div class="txt">终端支持 Ctrl+滚轮缩放字号、一键保存终端输出到本地文本。</div></div>
+  <div class="row"><div class="tag new">新增</div><div class="txt">文件管理支持多选批量上传、右键菜单、双击文件直接下载。</div></div>
+  <div class="row"><div class="tag new">新增</div><div class="txt">Modbus 监控表可切换十进制 / 十六进制 / 有符号显示，地址同样支持十六进制。</div></div>
+  <div class="row"><div class="tag new">新增</div><div class="txt">串口接收编码可选（解决 GBK 设备中文乱码），支持暂停显示与发送历史。</div></div>
+  <div class="row"><div class="tag">优化</div><div class="txt">大量输出时界面明显更流畅：终端渲染提速约 3 倍，串口高速收包提速数十倍。</div></div>
+  <div class="row"><div class="tag">优化</div><div class="txt">Modbus 轮询改为连续地址合并读取、数值未变不重绘，几百点位也不卡顿。</div></div>
+  <div class="row"><div class="tag fix">修复</div><div class="txt">修复监控表里保持寄存器点「写入修改」无反应的问题。</div></div>
+  <div class="row"><div class="tag fix">修复</div><div class="txt">修复下载进度条不走、下载大文件时界面卡住的问题。</div></div>
 </div>
 
 <h2 class="section-title" id="usage">使用方法</h2>
@@ -95,7 +130,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 <div class="steps">
   <div class="step"><div class="num">1</div><div class="txt">点击页面顶部“立即免费下载”按钮，下载安装包。</div></div>
   <div class="step"><div class="num">2</div><div class="txt">双击安装包，一路“下一步”完成安装（自动创建桌面快捷方式）。</div></div>
-  <div class="step"><div class="num">3</div><div class="txt">打开软件，顶部切换 SSH / Modbus / 串口 三个标签页即可使用。</div></div>
+  <div class="step"><div class="num">3</div><div class="txt">打开软件，顶部切换 SSH / Modbus / 串口 / 插件 四个标签页即可使用。</div></div>
 </div>
 
 <div class="notice">

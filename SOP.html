@@ -14,6 +14,7 @@ th,td{border:1px solid #cbd5e1;padding:8px 12px;text-align:left;font-size:14px}
 th{background:#e0e7ff}
 .warn{background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px}
 .danger{background:#fef2f2;border:1px solid #ef4444;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px}
+.tip{background:#eff6ff;border:1px solid #60a5fa;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px}
 ol li,ul li{margin:6px 0}
 code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,monospace}
 .meta{text-align:center;color:#64748b;font-size:13px;margin-bottom:30px}
@@ -24,7 +25,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.0 ｜ 生效日期：2026-08-24 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.1 ｜ 生效日期：2026-10-28 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -34,7 +35,8 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>本工具的安装、部署与更新；</li>
 <li>SSH 远程服务器管理与文件传输；</li>
 <li>Modbus TCP 设备（PLC、仪表、传感器等）的在线调试；</li>
-<li>串口（RS232 / RS485 / USB 转串口）设备的通信调试。</li>
+<li>串口（RS232 / RS485 / USB 转串口）设备的通信调试；</li>
+<li>通过插件扩展的批量运维、寄存器扫描等辅助功能。</li>
 </ul>
 
 <h2>三、运行环境要求</h2>
@@ -44,18 +46,25 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td>运行依赖</td><td>无</td><td>安装包已内置运行环境，无需安装 Python</td></tr>
 <tr><td>网络</td><td>目标 SSH / Modbus 设备网络可达</td><td>跨网段需先打通路由或 VPN</td></tr>
 <tr><td>串口</td><td>USB 转串口或原生串口驱动正常</td><td>端口号可在设备管理器查看</td></tr>
-<tr><td>磁盘空间</td><td>≥ 100 MB</td><td>—</td></tr>
+<tr><td>显示</td><td>建议 1366×768 及以上</td><td>已适配高分屏缩放，字体清晰不发虚</td></tr>
+<tr><td>磁盘空间</td><td>≥ 100 MB</td><td>安装包约 20 MB，安装后约 65 MB</td></tr>
 </table>
 
-<h2>四、安装与卸载</h2>
+<h2>四、安装、升级与卸载</h2>
 <h3>4.1 安装</h3>
 <ol>
-<li>从官网下载 <code>UltimateTool.exe</code> 安装包；</li>
+<li>下载 <code>UltimateTool.exe</code> 安装包；</li>
 <li>若杀毒软件（Defender / 360 / 火绒等）告警，先加入信任/白名单（本工具为个人免费软件，未购买数字签名，告警属误报）；</li>
 <li>双击安装包，按向导提示"下一步"，可自行选择安装路径；</li>
 <li>安装完成后勾选"运行 调试工具"，桌面将生成快捷方式。</li>
 </ol>
-<h3>4.2 卸载</h3>
+<h3>4.2 升级</h3>
+<ol>
+<li>直接下载新版本安装包并运行，安装到<strong>相同目录</strong>即可覆盖升级，无需先卸载；</li>
+<li>连接历史记录、插件启停状态保存在用户目录（<code>~/.ssh_gui_history.json</code>、<code>~/.ssh_gui_plugins.json</code>），升级后自动保留；</li>
+<li>窗口大小与位置记录在 <code>~/.ssh_gui_ui.json</code>，如界面错乱可删除该文件后重启。</li>
+</ol>
+<h3>4.3 卸载</h3>
 <p>控制面板 → 程序和功能 → 调试工具 → 卸载；或运行安装目录下的卸载程序。</p>
 
 <h2>五、SSH 远程管理操作流程</h2>
@@ -63,111 +72,162 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <ol>
 <li>切换到"SSH 远程管理"标签页；</li>
 <li>依次填写：主机（服务器 IP）、端口（默认 22）、用户名、密码；</li>
-<li>点击"连接"，底部状态栏显示"SSH: 已连接 x.x.x.x"即为成功；</li>
-<li>成功后左侧自动加载远程根目录文件列表，右侧终端显示欢迎信息。</li>
+<li>目标设备输出中文时如出现乱码，把"编码"改为 <code>GBK</code> 后再连接（默认 UTF-8）；</li>
+<li>点击"连接"，底部状态栏显示"SSH: 已连接 x.x.x.x"即为成功；连接过程中可点"取消"中断。</li>
 </ol>
 <h3>5.2 保存与使用历史记录</h3>
 <ol>
-<li>填写账号密码后点击"保存配置"，记录将加密保存在本机；</li>
+<li>填写账号密码后点击"保存配置"，记录加密保存在本机；</li>
 <li>下次从"历史记录"下拉框选择记录，账号密码自动填充，一键连接；</li>
 <li>选中记录后点击"删除记录"可移除。</li>
 </ol>
-<h3>5.3 文件上传 / 下载</h3>
+<h3>5.3 浏览远程目录</h3>
 <ol>
-<li>在左侧列表双击文件夹进入，"上级目录"返回；</li>
-<li>上传：点击"上传"，选择本地文件，将上传到当前远程目录，右上角进度条显示进度；</li>
-<li>下载：选中文件后点击"下载"，选择本地保存位置；</li>
-<li>传输完成后点击"刷新文件"核对结果。</li>
+<li>连接成功后自动列出根目录，<strong>目录优先排列</strong>，双击文件夹进入；</li>
+<li>顶部"路径"栏可直接编辑：输入 <code>/opt/app</code> 后回车跳转，也支持 <code>~</code>（家目录）和相对路径（如 <code>../log</code>）；</li>
+<li>点击"上级目录"或路径栏左侧的 <code>↑</code> 返回上一层；</li>
+<li>右键空白处或选中文件，可执行：打开/进入、下载到本地、上传到这里、复制路径、刷新。</li>
 </ol>
-<h3>5.4 终端命令</h3>
+<h3>5.4 文件上传 / 下载</h3>
 <ol>
-<li>在下方输入框输入命令，回车执行；</li>
-<li><code>Tab</code> 键自动补全常用命令；<code>↑ / ↓</code> 键翻找历史命令；</li>
-<li>"清屏"可清空终端显示。</li>
+<li>上传：点击"上传"，在文件选择框中<strong>按住 Ctrl 可多选</strong>，文件将上传到当前远程目录，右上角显示"第 N/M 个 + 百分比 + 已传/总大小"；</li>
+<li>下载：选中文件后点击"下载"（或直接双击该文件、右键选"下载到本地"），再选择本地保存位置；</li>
+<li>传输完成后列表自动刷新，状态栏显示落盘路径；</li>
+<li>若目标目录无写权限，换用有权限的目录（如 <code>/tmp</code>、<code>~/</code>）。</li>
 </ol>
+<h3>5.5 终端操作</h3>
+<ol>
+<li>连接成功后<strong>直接在终端区域内打字</strong>即可，无需另找输入框；回车即执行；</li>
+<li><code>Tab</code> 键补全文件名/命令，<code>↑ / ↓</code> 翻找历史命令；</li>
+<li><code>Ctrl + 鼠标滚轮</code> 可放大 / 缩小终端字号，长命令和小屏都方便；</li>
+<li>终端底部工具条提供「Ctrl+C（中断）」「清屏」「保存日志」；右键菜单可复制、粘贴、全选、保存终端输出；</li>
+<li>向上滚动查看历史输出时，新输出不会把视图强行拽回底部；滚回最底部后恢复自动跟随。</li>
+</ol>
+<table>
+<tr><th>快捷键</th><th>作用</th><th>快捷键</th><th>作用</th></tr>
+<tr><td><code>Ctrl+C</code></td><td>中断当前命令</td><td><code>Ctrl+Shift+C</code></td><td>复制选中内容</td></tr>
+<tr><td><code>Ctrl+D</code></td><td>结束输入 / 退出 shell</td><td><code>Ctrl+Shift+V</code></td><td>粘贴</td></tr>
+<tr><td><code>Ctrl+L</code></td><td>清屏（远端）</td><td><code>Ctrl+Shift+A</code></td><td>全选</td></tr>
+<tr><td><code>Ctrl+U / W</code></td><td>删除整行 / 删除前一个词</td><td><code>Ctrl+A / E</code></td><td>光标跳到行首 / 行尾</td></tr>
+</table>
 <div class="warn">⚠️ 在终端执行 <code>rm</code>、<code>reboot</code> 等破坏性命令前，务必反复确认目标路径与服务器，防止误操作生产环境。</div>
+<div class="tip">💡 排障取证时用「保存日志」把整段终端输出存成 txt，比截图更便于检索和转发给同事。</div>
 
 <h2>六、Modbus TCP 调试操作流程</h2>
 <h3>6.1 建立连接</h3>
 <ol>
 <li>切换到"Modbus TCP 调试"标签页；</li>
-<li>填写设备 IP、端口（Modbus 默认 502）、超时时间（默认 3000ms）；</li>
+<li>填写设备 IP、端口（Modbus 默认 502）、超时时间（默认 3000ms，网络差可加大）；</li>
 <li>点击"连接"，状态栏显示"Modbus: 已连接"即成功。</li>
 </ol>
-<h3>6.2 功能码速查表</h3>
+<h3>6.2 功能码与软件入口对照</h3>
 <table>
-<tr><th>功能码</th><th>含义</th><th>操作类型</th></tr>
-<tr><td>01</td><td>读线圈</td><td>读</td></tr>
-<tr><td>02</td><td>读离散输入</td><td>读</td></tr>
-<tr><td>03</td><td>读保持寄存器</td><td>读</td></tr>
-<tr><td>04</td><td>读输入寄存器</td><td>读</td></tr>
-<tr><td>05</td><td>写单个线圈</td><td>写（1=ON，0=OFF）</td></tr>
-<tr><td>06</td><td>写单个寄存器</td><td>写</td></tr>
-<tr><td>15</td><td>写多个线圈</td><td>写</td></tr>
-<tr><td>16</td><td>写多个寄存器</td><td>写</td></tr>
+<tr><th>功能码</th><th>含义</th><th>本软件中的入口</th></tr>
+<tr><td>01</td><td>读线圈</td><td>快速读写 / 监控（类型选"线圈"）</td></tr>
+<tr><td>02</td><td>读离散输入</td><td>监控（类型选"离散输入"）</td></tr>
+<tr><td>03</td><td>读保持寄存器</td><td>快速读写 / 监控（类型选"保持寄存器"）</td></tr>
+<tr><td>04</td><td>读输入寄存器</td><td>监控（类型选"输入寄存器"）</td></tr>
+<tr><td>05</td><td>写单个线圈</td><td>快速读写 / 监控行"写入修改"</td></tr>
+<tr><td>06</td><td>写单个寄存器</td><td>快速读写 / 监控行"写入修改"</td></tr>
 </table>
 <h3>6.3 快速读写</h3>
 <ol>
 <li>在"快速读写"区选择功能，填写地址与值/数量；</li>
-<li>点击"执行"，结果输出到右侧报文日志。</li>
+<li>地址支持十六进制写法，如 <code>0x10</code> 等同 16；数值同样支持 <code>0x</code> 前缀；</li>
+<li>读取数量范围 1～125（受 Modbus 单帧上限约束），超出会直接提示；</li>
+<li>点击"执行"，请求与结果输出到右侧"报文日志"。</li>
 </ol>
 <h3>6.4 寄存器实时监控</h3>
 <ol>
-<li>选择类型、填写起始地址与数量，点击"添加监控"；</li>
-<li>点击"刷新"读取一次当前值；勾选"自动轮询"可按间隔持续读取（建议间隔 ≥ 500ms）；</li>
-<li>修改数值：单击选中表格某一行，在下方"新值"框输入后点击"写入修改"；</li>
+<li>选择类型、填写起始地址与数量，点击"添加监控"；重复添加不会产生重复行；</li>
+<li>点击"刷新"读取一次；勾选"轮询"并按间隔（默认 1000ms，建议 ≥ 500ms）持续读取；</li>
+<li><strong>显示格式</strong>：右上"数值"下拉可切 <code>十进制 / 十六进制 / 有符号(16位)</code>，"地址"下拉可切十进制 / 十六进制 —— 只改变显示，不会重新读设备；</li>
+<li>修改数值：双击表格某一行（或选中后在下方的"新值"框输入，回车生效），点击"写入修改"；</li>
 <li>选中行后点击"删除"可移除监控点。</li>
 </ol>
+<div class="tip">💡 监控点位很多时，软件会把<strong>地址连续、功能码相同</strong>的点合并成一次读取，几百个点位也能流畅轮询；数值没有变化的行不会重复刷新，界面不会闪。</div>
 <div class="danger">🚨 <strong>安全红线：</strong>对运行中的设备（尤其是控制物理动作的 PLC）写入任何寄存器前，必须与现场人员确认地址含义，擅自写入可能导致设备动作或生产事故！</div>
 
 <h2>七、串口调试操作流程</h2>
 <h3>7.1 打开串口</h3>
 <ol>
-<li>切换到"串口调试工具"标签页，点击"刷新端口"；</li>
-<li>在"端口"下拉框选择目标串口（如 COM3）；</li>
+<li>切换到"串口调试工具"标签页，点击"刷新"重新枚举端口；</li>
+<li>在"端口"下拉框选择目标串口，列表会显示设备描述（如 <code>COM3 - USB-SERIAL CH340</code>），便于区分多个转换器；</li>
 <li>按设备铭牌/手册设置：波特率（常用 9600 / 115200）、数据位 8、停止位 1、校验 None；</li>
 <li>点击"打开串口"，状态栏显示端口名与波特率即成功。</li>
 </ol>
 <h3>7.2 发送数据</h3>
 <ol>
-<li>在发送框输入内容；勾选"HEX 发送"后可发送十六进制数据（如 <code>01 03 00 00 00 02</code>）；</li>
-<li>勾选"自动换行"会在末尾附加换行符；</li>
+<li>在发送框输入内容；勾选"HEX 发送"后可发送十六进制数据（如 <code>01 03 00 00 00 02</code>，空格可有可无）；HEX 格式非法时会提示，不会发出错误数据；</li>
+<li>"自动换行"会在末尾附加换行符；快捷按钮「回车 / 换行 / 空格」可发送单个控制字符；</li>
+<li>在发送框按 <code>↑ / ↓</code> 可回翻最近 50 条发送内容，重复下发不用重新敲；</li>
 <li>点击"发送数据"或按回车发送。</li>
 </ol>
 <h3>7.3 接收数据</h3>
 <ol>
 <li>接收区实时显示收到的数据；</li>
-<li>"HEX 显示"切换十六进制视图；"显示时间戳"便于分析通信周期；</li>
-<li>左下方统计收/发字节数；"清空接收"可清零重新统计。</li>
+<li>勾选"HEX"切换十六进制视图（按字节空格分隔），"时间戳"便于分析通信周期；</li>
+<li>设备输出中文乱码时，把"编码"切到 <code>GBK</code>（默认 UTF-8）—— 已按字符边界解码，切换后不会再出现半截字符；</li>
+<li>数据刷得太快看不清时勾选"暂停"，接收不中断、只是不刷新界面，取消勾选后继续显示；</li>
+<li>左下方统计收/发字节数；"清空接收"可清屏并清零统计。</li>
 </ol>
 <div class="warn">⚠️ 若串口列表为空：检查 USB 转串口驱动是否安装（设备管理器有无黄色感叹号）；若提示"串口被占用"，请关闭其他占用串口的软件（串口助手、PLC 编程软件等）。</div>
 
-<h2>八、常见故障与排除</h2>
+<h2>八、插件功能</h2>
+<h3>8.1 插件页构成</h3>
+<ul>
+<li>左侧上方为插件列表（插件名 / 版本 / 状态 / 说明）；</li>
+<li>左侧下方为所选插件的"动作"列表，双击动作或点"运行所选动作"执行；</li>
+<li>右侧上方是插件自带的操作界面，下方是插件运行日志（红字为错误）。</li>
+</ul>
+<h3>8.2 内置插件</h3>
+<table>
+<tr><th>插件</th><th>用途</th></tr>
+<tr><td>SSH 批量执行</td><td>把多条命令一次下发到当前服务器，逐条显示结果与退出码</td></tr>
+<tr><td>Modbus 寄存器扫描</td><td>按块读取一段地址，快速找出有效点位</td></tr>
+<tr><td>串口 HEX 收发助手</td><td>按帧收发十六进制数据，可定时循环发送并等待应答</td></tr>
+</table>
+<h3>8.3 启用、停用与重载</h3>
+<ol>
+<li>选中插件后点"启用/加载"或"禁用"，状态即时生效并会记住；</li>
+<li>插件更新文件后点"重载"（或"全部重载"）即可加载新代码，无需重启软件；</li>
+<li>插件任务卡住时点"停止任务"中断；</li>
+<li>点"打开插件目录"可查看插件文件所在位置。</li>
+</ol>
+<div class="tip">💡 用户插件目录为 <code>~/.ssh_gui_plugins</code>，优先级高于内置插件；同名插件放在这里即可覆盖内置版本。</div>
+
+<h2>九、常见故障与排除</h2>
 <table>
 <tr><th>故障现象</th><th>可能原因</th><th>处理方法</th></tr>
 <tr><td>软件被杀毒告警/删除</td><td>未签名个人软件误报</td><td>杀毒软件隔离区恢复，添加信任/白名单后运行</td></tr>
 <tr><td>SSH 连接失败</td><td>IP/端口/密码错误；服务器未开 SSH；防火墙拦截</td><td>逐项核对参数；确认服务器放行 22 端口</td></tr>
+<tr><td>SSH 终端中文乱码</td><td>服务端语言环境为 GBK</td><td>"编码"下拉切换为 GBK 后重新连接</td></tr>
 <tr><td>文件上传失败</td><td>远程目录无写权限 / 磁盘满</td><td>换有权限的目录（如 /tmp）；清理磁盘</td></tr>
 <tr><td>Modbus 连接被拒绝</td><td>设备未上电 / IP 错误 / 端口非 502</td><td>ping 设备 IP；确认设备已启用 Modbus TCP 服务</td></tr>
 <tr><td>Modbus 读取超时</td><td>地址/数量超范围；设备忙</td><td>核对设备手册地址表；减小数量；增大超时</td></tr>
+<tr><td>监控表「写入修改」无反应</td><td>目标为只读区（输入寄存器/离散输入）</td><td>只读区无法写入，请确认地址属于保持寄存器或线圈</td></tr>
 <tr><td>串口列表为空</td><td>驱动未装或线未接</td><td>安装 USB 转串口驱动；重插后在设备管理器确认</td></tr>
 <tr><td>串口打开失败（占用）</td><td>端口被其他软件占用</td><td>关闭串口助手/编程软件等后重开</td></tr>
-<tr><td>接收乱码</td><td>波特率/校验与设备不一致</td><td>按设备参数逐项对齐；改用 HEX 显示查看原始数据</td></tr>
+<tr><td>接收乱码</td><td>波特率/校验与设备不一致，或编码选错</td><td>按设备参数逐项对齐；编码切 GBK 或改用 HEX 查看原始数据</td></tr>
+<tr><td>界面字号过小/过大</td><td>高分屏缩放差异</td><td>终端内用 Ctrl+滚轮调整；其他区域跟随系统缩放设置</td></tr>
+<tr><td>窗口尺寸异常</td><td>显示分辨率变化</td><td>删除 <code>~/.ssh_gui_ui.json</code> 后重启，窗口恢复默认尺寸</td></tr>
 </table>
 
-<h2>九、安全与注意事项</h2>
+<h2>十、安全与注意事项</h2>
 <ul>
 <li>本工具将 SSH 密码加密保存在本机，请勿在公共电脑上保存敏感服务器记录；</li>
 <li>Modbus / 串口写操作为<strong>实时不可逆动作</strong>，执行前必须二次确认；</li>
 <li>生产高峰期避免进行大文件传输与批量写入操作；</li>
 <li>调试结束后，养成点击"断开"/"关闭串口"释放连接的习惯；</li>
+<li>插件与本工具拥有相同的设备访问权限，只安装来源可信的插件；</li>
 <li>本工具完全免费，不收集任何用户数据。</li>
 </ul>
 
-<h2>十、版本记录</h2>
+<h2>十一、版本记录</h2>
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.1</td><td>2026-10-28</td><td>界面改为浅色主题并适配高分屏；终端支持缩放与保存输出；文件管理支持多选上传与右键菜单；Modbus 增加数值/地址进制切换、连续地址合并读取；串口增加编码选择、暂停显示与发送历史；修复保持寄存器写入无响应、下载进度不走等问题；性能优化（终端渲染约 3 倍、串口高速收包数十倍）</td></tr>
 </table>
 
 <p style="text-align:center;color:#94a3b8;margin-top:50px;font-size:13px">— 本文档结束 —</p>
