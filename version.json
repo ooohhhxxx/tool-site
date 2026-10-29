@@ -1,13 +1,13 @@
 {
-  "version": "1.3.5",
+  "version": "1.3.6",
   "date": "2026-10-29",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.5/UltimateTool.exe",
-  "size": 16775746,
-  "sha256": "957f3c45beaa12b1e71617604b04f9d1ef5bc9a08bbd24f900a8d9e5c6d54fd8",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.6/UltimateTool.exe",
+  "size": 16770165,
+  "sha256": "0b6aaad8dfdee9ffceb2b35092cf6dfd1cdec547418f61ee8b2058ab05a3032f",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.5/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.6/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 设备档案：多套参数与监控点位存成档案，下拉一键切换（如「1号线PLC」「温控表9600」）\n2. 配置导入导出：参数和点位存成 JSON，换电脑、发给同事都方便（不含任何密码）\n3. 监控数值变化时高亮，一眼看出哪个点位动了\n4. 终端与日志里 ERROR / 失败 / 超时 / 警告 自动标色，可开关\n5. 文件列表支持实时过滤；窗口可置顶（Ctrl+T）"
+  "notes": "1. 新增「设置」窗口：窗口置顶与关键字高亮收在一处管理，顶栏只留一个入口\n2. 关键字高亮的开关会记住上次选择；窗口置顶不保存，下次启动默认不置顶\n3. 保留上一版的变化高亮、日志关键字高亮、文件列表过滤"
 }
