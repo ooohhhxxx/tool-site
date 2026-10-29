@@ -64,6 +64,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li><strong>推荐</strong>：打开软件 → 插件页 →「检查更新」，检测到新版本后一键下载安装（V1.2.0 起支持）；</li><li>也可以直接下载新版本安装包并运行，安装到<strong>相同目录</strong>即可覆盖升级，无需先卸载；</li>
 <li>连接历史记录、插件启停状态保存在用户目录（<code>~/.ssh_gui_history.json</code>、<code>~/.ssh_gui_plugins.json</code>），升级后自动保留；</li>
 <li>窗口大小与位置记录在 <code>~/.ssh_gui_ui.json</code>，如界面错乱可删除该文件后重启。</li>
+<li>本工具限制为单实例：重复双击快捷方式不会开出第二个窗口，而是把已经在运行的那个切到前台。</li>
 </ol>
 <h3>4.3 卸载</h3>
 <p>控制面板 → 程序和功能 → 调试工具 → 卸载；或运行安装目录下的卸载程序。</p>
@@ -104,6 +105,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <ol>
 <li>上传：点击"上传"，在文件选择框中<strong>按住 Ctrl 可多选</strong>，文件将上传到当前远程目录，右上角显示"第 N/M 个 + 百分比 + 已传/总大小"；</li>
 <li>下载：选中文件后点击"下载"（或直接双击该文件、右键选"下载到本地"），再选择本地保存位置；</li>
+<li>传输过程中右上角会出现「取消传输」按钮，点一下即可中断（下载取消后会自动删掉下了一半的文件）；</li>
 <li>传输完成后列表自动刷新，状态栏显示落盘路径；</li>
 <li>若目标目录无写权限，换用有权限的目录（如 <code>/tmp</code>、<code>~/</code>）。</li>
 </ol>
@@ -172,6 +174,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>按设备铭牌/手册设置：波特率（常用 9600 / 115200）、数据位 8、停止位 1、校验 None；</li>
 <li>点击"打开串口"，状态栏显示端口名与波特率即成功。</li>
 </ol>
+<div class="tip">💡 端口、波特率、校验、编码等参数会被记住，下次打开软件自动带出，同一台设备不用反复填。</div>
 <h3>7.2 发送数据</h3>
 <ol>
 <li>在发送框输入内容；勾选"HEX 发送"后可发送十六进制数据（如 <code>01 03 00 00 00 02</code>，空格可有可无）；HEX 格式非法时会提示，不会发出错误数据；</li>
@@ -229,6 +232,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>切换到"插件"标签页，在"插件管理"框底部找到更新区；</li>
 <li>点"检查更新"（若已发现新版本，按钮会直接显示"立即更新"）；</li>
 <li>显示新版本后点"立即更新"，进度条会显示下载百分比与已下载/总大小；</li>
+<li>下载期间会校验安装包大小与 <strong>SHA256</strong> 指纹，校验不通过会提示"下载失败"并丢弃，避免装到损坏或被篡改的包；</li>
 <li>下载完成后弹窗询问是否安装：选"是"，软件自动退出并启动安装程序，按提示完成安装后重新打开即可；</li>
 <li>选"否"，安装包会保留在本地临时目录，稍后双击该文件同样可以完成更新。</li>
 </ol>
