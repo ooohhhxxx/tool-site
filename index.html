@@ -77,7 +77,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.4 ｜ 更新于 2026-10-29 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.5 ｜ 更新于 2026-10-29 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -143,9 +143,23 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <div class="release">
   <div class="rel-head">
-    <span class="rel-ver">v1.3.4</span>
+    <span class="rel-ver">v1.3.5</span>
     <span class="rel-date">2026-10-29</span>
     <span class="rel-badge">最新</span>
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag new">新增</div><div class="txt">设备档案：把一套参数与监控点位存成档案（如「1号线PLC」），顶栏下拉一键切换，多台设备来回切不再重填。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">配置导入导出：参数和点位存成 JSON，换电脑、发给同事、批量编辑点位表都用它（不含任何密码）。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">监控数值变化时高亮：几百个点位也能一眼看出哪个刚动了。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">终端与日志里 ERROR / 失败 / 异常 / 超时 / 警告 自动标色，排障不用再用眼睛扫（顶栏可关闭）。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">文件列表支持实时过滤；窗口可一键置顶（Ctrl+T），对照文档调试不会被盖住。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
+    <span class="rel-ver">v1.3.4</span>
+    <span class="rel-date">2026-10-29</span>
   </div>
   <div class="updates">
     <div class="row"><div class="tag fix">修复</div><div class="txt">检查更新也走国内镜像了：原先内置地址分支名写错（main→master）导致仍在挤 GitHub，慢的时候会提示检查失败。</div></div>

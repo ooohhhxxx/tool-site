@@ -1,13 +1,13 @@
 {
-  "version": "1.3.4",
+  "version": "1.3.5",
   "date": "2026-10-29",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.4/UltimateTool.exe",
-  "size": 16762214,
-  "sha256": "e193af1fff77a039b13854de65ef8b7cb3fdf2d0347d23d8940a25abb3e3c32d",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.5/UltimateTool.exe",
+  "size": 16775746,
+  "sha256": "957f3c45beaa12b1e71617604b04f9d1ef5bc9a08bbd24f900a8d9e5c6d54fd8",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.4/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.5/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 修复：更新清单的内置国内地址分支名写错（main→master），检查更新现在也走国内镜像\n2. 下载源仍是国内镜像优先，某个源太慢或失败会自动换下一个\n3. 实测国内从 GitHub 下载约 44KB/s（16.8MB 要 6 分钟），国内镜像约 1.3~1.8MB/s（十几秒）"
+  "notes": "1. 设备档案：多套参数与监控点位存成档案，下拉一键切换（如「1号线PLC」「温控表9600」）\n2. 配置导入导出：参数和点位存成 JSON，换电脑、发给同事都方便（不含任何密码）\n3. 监控数值变化时高亮，一眼看出哪个点位动了\n4. 终端与日志里 ERROR / 失败 / 超时 / 警告 自动标色，可开关\n5. 文件列表支持实时过滤；窗口可置顶（Ctrl+T）"
 }

@@ -26,7 +26,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.4 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.5 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -91,6 +91,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>顶部"路径"栏可直接编辑：输入 <code>/opt/app</code> 后回车跳转，也支持 <code>~</code>（家目录）和相对路径（如 <code>../log</code>）；</li>
 <li>点击"上级目录"或路径栏左侧的 <code>↑</code> 返回上一层；</li>
 <li>右键空白处或选中文件，可执行：打开/进入、下载到本地、上传到这里、复制路径、刷新。</li>
+<li><strong>过滤</strong>：文件多时在列表上方"过滤"框输入关键字（如 <code>.log</code>），列表实时筛选，大小写不敏感；按 <code>Esc</code> 或点"清除"恢复。过滤只在已拉取的数据上进行，<strong>不会重新请求服务器</strong>，慢链路上也不卡。</li>
 </ol>
 <p><strong>文件维护</strong>（均在右键菜单中，操作后列表自动刷新且保留选中项）：</p>
 <table>
@@ -126,7 +127,9 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td><code>Ctrl+U / W</code></td><td>删除整行 / 删除前一个词</td><td><code>Ctrl+A / E</code></td><td>光标跳到行首 / 行尾</td></tr>
 <tr><td><code>Ctrl+F</code></td><td>查找终端内容</td><td><code>Ctrl+1~4</code></td><td>切换四个标签页</td></tr>
 <tr><td><code>F5</code></td><td>刷新当前列表</td><td><code>Ctrl+滚轮</code></td><td>终端字号缩放</td></tr>
+<tr><td><code>F1</code></td><td>打开「关于」窗口</td><td><code>Ctrl+T</code></td><td>窗口置顶开关</td></tr>
 </table>
+<div class="tip">💡 顶栏右侧还有两个全局开关：<strong>窗口置顶</strong>（对着文档或网页调设备时窗口不会被盖住，等同 Ctrl+T）和<strong>关键字高亮</strong>（终端与日志里的 ERROR / 失败 / 异常 标红、超时 / 警告 标黄，不想看可以关掉）。</div>
 <div class="warn">⚠️ 在终端执行 <code>rm</code>、<code>reboot</code> 等破坏性命令前，务必反复确认目标路径与服务器，防止误操作生产环境。</div>
 <div class="tip">💡 排障取证时用「保存日志」把整段终端输出存成 txt，比截图更便于检索和转发给同事。</div>
 
@@ -164,6 +167,21 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>监控点位会自动保存，下次打开软件仍在列表里，无需重新添加。</li>
 </ol>
 <div class="tip">💡 监控点位很多时，软件会把<strong>地址连续、功能码相同</strong>的点合并成一次读取，几百个点位也能流畅轮询；数值没有变化的行不会重复刷新，界面不会闪。</div>
+<div class="tip">💡 <strong>数值变化会短暂高亮</strong>（黄底）：高亮持续到下一次轮询，一眼就能看出这轮是哪个点位动了。首次读到值（从 <code>---</code> 变成真实值）不算变化，不会整片变黄。</div>
+
+<h3>6.5 设备档案与配置导入导出</h3>
+<p>一个现场往往要连好几台设备——IP、波特率、监控点位各不相同。用设备档案把它们分开存：</p>
+<ol>
+<li><strong>存为档案</strong>：把当前参数与监控点位调好，点顶栏「存为档案」，起个名字（如"1号线PLC""温控表9600"）；</li>
+<li><strong>切换</strong>：顶栏左侧下拉选档案即可，参数和点位会整套换过去（会先问一次确认，避免误切）；</li>
+<li><strong>删除</strong>：选中档案后点「删除」，只删档案，不影响当前正在用的参数。</li>
+</ol>
+<p>顶栏右侧还有「导入配置 / 导出配置」：</p>
+<ul>
+<li><strong>导出</strong>：把 Modbus 与串口参数、监控点位存成一个 JSON 文件，换电脑、发给同事、用记事本批量改点位都很方便；</li>
+<li><strong>导入</strong>：读回这个 JSON，覆盖当前参数与点位（导入是<strong>替换</strong>不是叠加，不会越导越多）。</li>
+</ul>
+<div class="tip">💡 导入导出<strong>只包含参数和点位，不含任何 SSH 密码或连接历史</strong>，可以放心发给别人。</div>
 <div class="danger">🚨 <strong>安全红线：</strong>对运行中的设备（尤其是控制物理动作的 PLC）写入任何寄存器前，必须与现场人员确认地址含义，擅自写入可能导致设备动作或生产事故！</div>
 
 <h2>七、串口调试操作流程</h2>
@@ -329,6 +347,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.3.5</td><td>2026-10-29</td><td>新增设备档案（多套参数与点位一键切换）、配置导入导出、监控数值变化高亮、终端与日志关键字高亮、文件列表过滤、窗口置顶(Ctrl+T)</td></tr>
 <tr><td>V1.3.4</td><td>2026-10-29</td><td>修复：更新清单的内置国内镜像地址分支名写错（main→master），导致检查更新实际仍在访问 GitHub；修正后检查更新也走国内镜像</td></tr>
 <tr><td>V1.3.3</td><td>2026-10-29</td><td>更新支持多个下载源：国内镜像优先，某个源太慢（低于 50KB/s）或失败时自动换下一个；更新清单同样多源获取</td></tr>
 <tr><td>V1.3.2</td><td>2026-10-29</td><td>新增「关于」窗口（F1 或插件页「关于」按钮：版本号、官网链接、更新日志）；串口新增定时循环发送（可设毫秒间隔）与常用命令列表（存入 / 移除，自动记住）</td></tr>
