@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>调试工具 - 标准操作程序 (SOP)</title>
+<link rel="icon" href="./favicon.ico" sizes="any">
 <style>
 body{font-family:"Microsoft YaHei",sans-serif;line-height:1.8;color:#1e293b;max-width:900px;margin:0 auto;padding:40px 20px;background:#f8fafc}
 h1{text-align:center;color:#0f172a;border-bottom:3px solid #2563eb;padding-bottom:16px}
@@ -25,7 +26,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.2.0 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.2.1 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -280,6 +281,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.2.1</td><td>2026-10-29</td><td>新增专属程序图标（桌面快捷方式 / 任务栏 / 窗口 / 安装程序）；官网同步更换图标；功能与 V1.2.0 一致</td></tr>
 <tr><td>V1.2.0</td><td>2026-10-29</td><td>新增软件在线更新：插件页提供「检查更新」按钮与官网链接，启动时自动检查新版本，支持一键下载安装，无需再手动访问网站下载</td></tr>
 <tr><td>V1.1.1</td><td>2026-10-28</td><td>软件名称统一为「SSH &amp; Modbus &amp; 串口 调试工具」，窗口标题去掉冗余字样；功能与 V1.1 一致</td></tr>
 <tr><td>V1.1</td><td>2026-10-28</td><td>界面改为浅色主题并适配高分屏；终端支持缩放与保存输出；文件管理支持多选上传与右键菜单；Modbus 增加数值/地址进制切换、连续地址合并读取；串口增加编码选择、暂停显示与发送历史；修复保持寄存器写入无响应、下载进度不走等问题；性能优化（终端渲染约 3 倍、串口高速收包数十倍）</td></tr>
