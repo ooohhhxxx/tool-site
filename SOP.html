@@ -26,7 +26,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.9 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.10 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -61,7 +61,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 </ol>
 <h3>4.2 升级</h3>
 <ol>
-<li><strong>推荐</strong>：打开软件 → 插件页 →「检查更新」，检测到新版本后一键下载安装（V1.2.0 起支持）；</li><li>也可以直接下载新版本安装包并运行，安装到<strong>相同目录</strong>即可覆盖升级，无需先卸载；</li>
+<li><strong>推荐</strong>：打开软件 → 设置页 →「检查更新」，检测到新版本后一键下载安装（V1.2.0 起支持）；</li><li>也可以直接下载新版本安装包并运行，安装到<strong>相同目录</strong>即可覆盖升级，无需先卸载；</li>
 <li>连接历史记录、插件启停状态保存在用户目录（<code>~/.ssh_gui_history.json</code>、<code>~/.ssh_gui_plugins.json</code>），升级后自动保留；</li>
 <li>窗口大小与位置记录在 <code>~/.ssh_gui_ui.json</code>，如界面错乱可删除该文件后重启。</li>
 <li>本工具限制为单实例：重复双击快捷方式不会开出第二个窗口，而是把已经在运行的那个切到前台。</li>
@@ -125,11 +125,11 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td><code>Ctrl+D</code></td><td>结束输入 / 退出 shell</td><td><code>Ctrl+Shift+V</code></td><td>粘贴</td></tr>
 <tr><td><code>Ctrl+L</code></td><td>清屏（远端）</td><td><code>Ctrl+Shift+A</code></td><td>全选</td></tr>
 <tr><td><code>Ctrl+U / W</code></td><td>删除整行 / 删除前一个词</td><td><code>Ctrl+A / E</code></td><td>光标跳到行首 / 行尾</td></tr>
-<tr><td><code>Ctrl+F</code></td><td>查找终端内容</td><td><code>Ctrl+1~4</code></td><td>切换四个标签页</td></tr>
+<tr><td><code>Ctrl+F</code></td><td>查找终端内容</td><td><code>Ctrl+1~5</code></td><td>切换五个标签页（第 5 个是设置）</td></tr>
 <tr><td><code>F5</code></td><td>刷新当前列表</td><td><code>Ctrl+滚轮</code></td><td>终端字号缩放</td></tr>
 <tr><td><code>F1</code></td><td>打开「关于」窗口</td><td><code>Ctrl+T</code></td><td>窗口置顶开关</td></tr>
 </table>
-<div class="tip">💡 全局开关在标签栏最右侧的<strong>「设置」</strong>标签里：点它会弹出设置窗口（不会切到别的页面）。里面是<strong>窗口置顶</strong>（对着文档或网页调设备时窗口不会被盖住，快捷键 Ctrl+T）和<strong>关键字高亮</strong>（终端与日志里的 ERROR / 失败 / 异常 标红、超时 / 警告 标黄，不想看可以关掉）。高亮的开关会记住，置顶不保存——下次启动默认不置顶；置顶生效时窗口标题会显示「[置顶]」。</div>
+<div class="tip">💡 全局开关在标签栏最右侧的<strong>「设置」</strong>标签页里（和其他标签页一样直接切换）。里面是<strong>窗口置顶</strong>（对着文档或网页调设备时窗口不会被盖住，快捷键 Ctrl+T）和<strong>关键字高亮</strong>（终端与日志里的 ERROR / 失败 / 异常 标红、超时 / 警告 标黄，不想看可以关掉）。高亮的开关会记住，置顶不保存——下次启动默认不置顶；置顶生效时窗口标题会显示「[置顶]」。</div>
 <div class="warn">⚠️ 在终端执行 <code>rm</code>、<code>reboot</code> 等破坏性命令前，务必反复确认目标路径与服务器，防止误操作生产环境。</div>
 <div class="tip">💡 排障取证时用「保存日志」把整段终端输出存成 txt，比截图更便于检索和转发给同事。</div>
 
@@ -219,9 +219,8 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>左侧上方为插件列表（插件名 / 版本 / 状态 / 说明）；</li>
 <li>左侧下方为所选插件的"动作"列表，双击动作或点"运行所选动作"执行；</li>
 <li>右侧上方是插件自带的操作界面，下方是插件运行日志（红字为错误）；</li>
-<li>顶部区域还放了「检查更新」与「关于」按钮，下方是官网直达链接。</li>
 </ul>
-<div class="tip">💡 按 <code>F1</code>（或在插件页点「关于」按钮）打开关于窗口：显示当前版本号、官网链接与历次更新日志，报障时直接把版本号发给维护人员即可。</div>
+<div class="tip">💡 按 <code>F1</code>（或在设置页点「关于」按钮）打开关于窗口：显示当前版本号、官网链接与历次更新日志，报障时直接把版本号发给维护人员即可。</div>
 <h3>8.2 内置插件</h3>
 <table>
 <tr><th>插件</th><th>用途</th></tr>
@@ -245,13 +244,13 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>方式</th><th>触发时机</th><th>说明</th></tr>
 <tr><td>自动检查</td><td>每次启动软件约 5 秒后</td><td>后台静默进行，不阻塞使用。只有发现新版本才弹窗；没有更新或网络不通都不会打扰操作</td></tr>
-<tr><td>手动检查</td><td>插件页 →「检查更新」</td><td>随时可点，检查结果显示在按钮右侧</td></tr>
+<tr><td>手动检查</td><td>设置页 →「检查更新」</td><td>随时可点，检查结果显示在按钮右侧</td></tr>
 </table>
 <div class="tip">💡 自动检查只读取一个几 KB 的版本清单，不下载安装包，不影响启动速度。确需关闭，可在启动前设置环境变量 <code>ULTIMATE_TOOL_NO_UPDATE=1</code>。</div>
 
 <h3>9.2 一键更新步骤</h3>
 <ol>
-<li>切换到"插件"标签页，在"插件管理"框底部找到更新区；</li>
+<li>切换到"设置"标签页（标签栏最右边），在"软件更新"框里操作；</li>
 <li>点"检查更新"（若已发现新版本，按钮会直接显示"立即更新"）；</li>
 <li>显示新版本后点"立即更新"，进度条会显示下载百分比与已下载/总大小；</li>
 <li>下载期间会校验安装包大小与 <strong>SHA256</strong> 指纹，校验不通过会提示"下载失败"并丢弃，避免装到损坏或被篡改的包；</li>
@@ -284,7 +283,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <h3>9.5 更新失败排查</h3>
 <table>
 <tr><th>现象</th><th>可能原因</th><th>处理方法</th></tr>
-<tr><td>检查更新提示失败</td><td>公司网络或代理无法访问外网更新服务器</td><td>点更新区下方官网链接，手动下载安装包覆盖安装</td></tr>
+<tr><td>检查更新提示失败</td><td>公司网络或代理无法访问外网更新服务器</td><td>点设置页里的官网链接，手动下载安装包覆盖安装</td></tr>
 <tr><td>下载到中途失败</td><td>网络波动、代理节点不稳定</td><td>重试一次；仍失败改用手动下载</td></tr>
 <tr><td>安装时提示文件正在使用</td><td>软件未完全退出（含后台残留）</td><td>彻底关闭软件后再运行安装包；必要时在任务管理器结束"调试工具"进程</td></tr>
 <tr><td>更新后打开仍是旧版本</td><td>装到了另一个目录，旧快捷方式仍指向旧程序</td><td>右键快捷方式 → 属性，核对"目标"路径；或卸载后重新安装</td></tr>
@@ -334,6 +333,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.3.10</td><td>2026-10-29</td><td>设置改为正式标签页（不再弹窗），插件页的「检查更新」与官网链接收进设置页的「软件更新」区；设置页固定在标签栏最后一个，Ctrl+1~5 切换</td></tr>
 <tr><td>V1.3.9</td><td>2026-10-29</td><td>修复：点「设置」标签时会闪一下空白页（改为拦截点击直接弹窗，不再切换页面）</td></tr>
 <tr><td>V1.3.8</td><td>2026-10-29</td><td>设置改为标签栏最右侧的「设置」标签，点它弹出设置窗口，消除右侧空白竖条；置顶状态显示在窗口标题</td></tr>
 <tr><td>V1.3.7</td><td>2026-10-29</td><td>界面：去掉顶部单独的工具条，设置入口与标签页栏同一行</td></tr>

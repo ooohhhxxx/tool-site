@@ -1,13 +1,13 @@
 {
-  "version": "1.3.9",
+  "version": "1.3.10",
   "date": "2026-10-29",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.9/UltimateTool.exe",
-  "size": 16772720,
-  "sha256": "843504dd2329e99a63bbcbb1b1f47c80f88675c85ec77ded69ad08c7cd9cd902",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.10/UltimateTool.exe",
+  "size": 16764890,
+  "sha256": "4a2c7e1cdc76b7313330ebd6970ecb63e83ba7d919b06c9aa57ef463bbd94f86",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.9/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.10/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "修复：点「设置」标签时会闪一下空白页——改成拦截点击直接弹窗，不再切换页面"
+  "notes": "1. 设置改为正式标签页（不再弹窗），和其他标签页一样直接切换\n2. 插件页的「检查更新」和官网链接搬进设置页的「软件更新」区\n3. 设置页固定在标签栏最后一个；Ctrl+1~5 可切换标签页"
 }
