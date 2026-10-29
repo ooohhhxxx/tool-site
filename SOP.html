@@ -26,7 +26,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.2.1 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.0 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -76,19 +76,30 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>目标设备输出中文时如出现乱码，把"编码"改为 <code>GBK</code> 后再连接（默认 UTF-8）；</li>
 <li>点击"连接"，底部状态栏显示"SSH: 已连接 x.x.x.x"即为成功；连接过程中可点"取消"中断。</li>
 </ol>
+<p><strong>使用私钥登录（免密）：</strong>点密码框右侧的 <code>🔑</code> 按钮选择私钥文件（如 <code>id_rsa</code>、<code>id_ed25519</code>），按钮变蓝表示已启用，此时密码框自动禁用，直接点"连接"即可。</p>
+<div class="tip">💡 用完后在 <code>🔑</code> 按钮上点<strong>右键</strong>可清除私钥、改回密码登录。若私钥本身有 passphrase，本工具暂不支持输入，请先用 <code>ssh-keygen -p</code> 去掉口令或改用密码登录。</div>
 <h3>5.2 保存与使用历史记录</h3>
 <ol>
 <li>填写账号密码后点击"保存配置"，记录加密保存在本机；</li>
 <li>下次从"历史记录"下拉框选择记录，账号密码自动填充，一键连接；</li>
 <li>选中记录后点击"删除记录"可移除。</li>
 </ol>
-<h3>5.3 浏览远程目录</h3>
+<h3>5.3 浏览与维护远程目录</h3>
 <ol>
 <li>连接成功后自动列出根目录，<strong>目录优先排列</strong>，双击文件夹进入；</li>
 <li>顶部"路径"栏可直接编辑：输入 <code>/opt/app</code> 后回车跳转，也支持 <code>~</code>（家目录）和相对路径（如 <code>../log</code>）；</li>
 <li>点击"上级目录"或路径栏左侧的 <code>↑</code> 返回上一层；</li>
 <li>右键空白处或选中文件，可执行：打开/进入、下载到本地、上传到这里、复制路径、刷新。</li>
 </ol>
+<p><strong>文件维护</strong>（均在右键菜单中，操作后列表自动刷新且保留选中项）：</p>
+<table>
+<tr><th>操作</th><th>说明</th></tr>
+<tr><td>新建文件夹</td><td>选中某个目录时建在它下面，否则建在当前目录</td></tr>
+<tr><td>重命名</td><td>输入新名称即可，名称中不能带 <code>/</code></td></tr>
+<tr><td>修改权限</td><td>输入八进制权限，如 <code>644</code>、<code>755</code>、<code>600</code></td></tr>
+<tr><td>删除</td><td>文件需在确认框点"是"；<strong>目录需手动输入目录名确认</strong>，且只能删除空目录</td></tr>
+</table>
+<div class="danger">🚨 <strong>删除不可恢复！</strong>确认框里会显示完整路径，请逐字核对。删除正在运行的程序或配置前，先备份或确认可重建。</div>
 <h3>5.4 文件上传 / 下载</h3>
 <ol>
 <li>上传：点击"上传"，在文件选择框中<strong>按住 Ctrl 可多选</strong>，文件将上传到当前远程目录，右上角显示"第 N/M 个 + 百分比 + 已传/总大小"；</li>
@@ -102,6 +113,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li><code>Tab</code> 键补全文件名/命令，<code>↑ / ↓</code> 翻找历史命令；</li>
 <li><code>Ctrl + 鼠标滚轮</code> 可放大 / 缩小终端字号，长命令和小屏都方便；</li>
 <li>终端底部工具条提供「Ctrl+C（中断）」「清屏」「保存日志」；右键菜单可复制、粘贴、全选、保存终端输出；</li>
+<li>按 <code>Ctrl+F</code> 打开查找框：输入关键字即高亮全部匹配并显示命中数量，按回车或 <code>↓</code> 跳到下一处、<code>Shift+回车</code> 或 <code>↑</code> 跳上一处，<code>Esc</code> 关闭并清除高亮；</li>
 <li>向上滚动查看历史输出时，新输出不会把视图强行拽回底部；滚回最底部后恢复自动跟随。</li>
 </ol>
 <table>
@@ -110,6 +122,8 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td><code>Ctrl+D</code></td><td>结束输入 / 退出 shell</td><td><code>Ctrl+Shift+V</code></td><td>粘贴</td></tr>
 <tr><td><code>Ctrl+L</code></td><td>清屏（远端）</td><td><code>Ctrl+Shift+A</code></td><td>全选</td></tr>
 <tr><td><code>Ctrl+U / W</code></td><td>删除整行 / 删除前一个词</td><td><code>Ctrl+A / E</code></td><td>光标跳到行首 / 行尾</td></tr>
+<tr><td><code>Ctrl+F</code></td><td>查找终端内容</td><td><code>Ctrl+1~4</code></td><td>切换四个标签页</td></tr>
+<tr><td><code>F5</code></td><td>刷新当前列表</td><td><code>Ctrl+滚轮</code></td><td>终端字号缩放</td></tr>
 </table>
 <div class="warn">⚠️ 在终端执行 <code>rm</code>、<code>reboot</code> 等破坏性命令前，务必反复确认目标路径与服务器，防止误操作生产环境。</div>
 <div class="tip">💡 排障取证时用「保存日志」把整段终端输出存成 txt，比截图更便于检索和转发给同事。</div>
@@ -144,7 +158,8 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>点击"刷新"读取一次；勾选"轮询"并按间隔（默认 1000ms，建议 ≥ 500ms）持续读取；</li>
 <li><strong>显示格式</strong>：右上"数值"下拉可切 <code>十进制 / 十六进制 / 有符号(16位)</code>，"地址"下拉可切十进制 / 十六进制 —— 只改变显示，不会重新读设备；</li>
 <li>修改数值：双击表格某一行（或选中后在下方的"新值"框输入，回车生效），点击"写入修改"；</li>
-<li>选中行后点击"删除"可移除监控点。</li>
+<li>选中行后点击"删除"可移除监控点；点"导出CSV"把整张表存成 CSV（UTF-8 带 BOM，Excel 直接打开不乱码），含地址、类型、显示值、原始值与导出时间。</li>
+<li>监控点位会自动保存，下次打开软件仍在列表里，无需重新添加。</li>
 </ol>
 <div class="tip">💡 监控点位很多时，软件会把<strong>地址连续、功能码相同</strong>的点合并成一次读取，几百个点位也能流畅轮询；数值没有变化的行不会重复刷新，界面不会闪。</div>
 <div class="danger">🚨 <strong>安全红线：</strong>对运行中的设备（尤其是控制物理动作的 PLC）写入任何寄存器前，必须与现场人员确认地址含义，擅自写入可能导致设备动作或生产事故！</div>
@@ -171,6 +186,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>设备输出中文乱码时，把"编码"切到 <code>GBK</code>（默认 UTF-8）—— 已按字符边界解码，切换后不会再出现半截字符；</li>
 <li>数据刷得太快看不清时勾选"暂停"，接收不中断、只是不刷新界面，取消勾选后继续显示；</li>
 <li>左下方统计收/发字节数；"清空接收"可清屏并清零统计。</li>
+<li>勾选"记录"（与 Modbus 页共用同一个开关）会把收发内容写入 <code>~/调试工具日志/日期.log</code>，按天分文件，便于事后追溯。</li>
 </ol>
 <div class="warn">⚠️ 若串口列表为空：检查 USB 转串口驱动是否安装（设备管理器有无黄色感叹号）；若提示"串口被占用"，请关闭其他占用串口的软件（串口助手、PLC 编程软件等）。</div>
 
@@ -281,6 +297,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.3.0</td><td>2026-10-29</td><td>新增远程文件维护（新建/重命名/改权限/删除）、私钥登录、终端查找(Ctrl+F)、日志落盘、监控数据导出 CSV、传输可取消、单实例防重复启动、更新包 SHA256 校验；Modbus 与串口参数及监控点位自动记忆；密码改用系统 DPAPI 加密存储</td></tr>
 <tr><td>V1.2.1</td><td>2026-10-29</td><td>新增专属程序图标（桌面快捷方式 / 任务栏 / 窗口 / 安装程序）；官网同步更换图标；功能与 V1.2.0 一致</td></tr>
 <tr><td>V1.2.0</td><td>2026-10-29</td><td>新增软件在线更新：插件页提供「检查更新」按钮与官网链接，启动时自动检查新版本，支持一键下载安装，无需再手动访问网站下载</td></tr>
 <tr><td>V1.1.1</td><td>2026-10-28</td><td>软件名称统一为「SSH &amp; Modbus &amp; 串口 调试工具」，窗口标题去掉冗余字样；功能与 V1.1 一致</td></tr>
