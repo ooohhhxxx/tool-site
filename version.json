@@ -1,8 +1,18 @@
 {
-  "version": "1.3.2",
+  "version": "1.3.3",
   "date": "2026-10-29",
   "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe",
-  "size": 16760080,
-  "sha256": "c7f4ac0b82f94138081c342ca0006e9e2cf8dc5e02f04530db9bce27f1e1a1f0",
-  "notes": "1. 新增「关于」窗口：按 F1 或点插件页「关于」按钮，版本号、官网链接、更新日志一目了然\n2. 串口新增定时循环发送：勾上后按设定间隔（毫秒）自动发，调试心跳包不用一直点按钮\n3. 串口新增常用命令列表：发送框内容点「存入」收藏，下次打开还在，下拉选中即填入"
+  "size": 16761378,
+  "sha256": "2a63932a8bfa7769b0342d912c8730c5d4d7247b4b89ae8842c897408fc5a286",
+  "mirrors": [
+    {
+      "name": "Gitee 国内镜像",
+      "url": "https://gitee.com/ooohhhxxx/tool-site/raw/main/UltimateTool.exe"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
+    }
+  ],
+  "notes": "1. 更新支持多个下载源：国内镜像优先，某个源太慢或失败会自动换下一个\n2. 实测国内从 GitHub 下载只有约 44KB/s（16.8MB 要 6 分钟），走国内镜像约 12 秒\n3. 下载完成后仍会做 SHA256 校验，换源不影响安全性"
 }

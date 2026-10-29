@@ -26,7 +26,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.2 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.3 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -286,6 +286,16 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td>安装包被杀软删除</td><td>未签名程序误报</td><td>在杀软隔离区恢复，并添加白名单后重新安装</td></tr>
 </table>
 
+<h3>9.6 下载源与自动切换</h3>
+<p>安装包同时放在多个位置（GitHub 和国内镜像）。软件按以下规则取用：</p>
+<ol>
+<li>更新清单（version.json）同样从多个源获取，国内镜像优先，取不到再换 GitHub；</li>
+<li>下载时按清单里给出的顺序逐个尝试，先试国内镜像；</li>
+<li><strong>慢也算失败</strong>：某个源持续低于 50KB/s 且后面还有别的源时，软件会放弃它换下一个，不会让你对着不动的进度条干等；只剩最后一个源时不会中断，会一直下完；</li>
+<li>无论从哪个源下载，完成后都会做 SHA256 校验，源被替换或文件被篡改都能发现。</li>
+</ol>
+<div class="tip">💡 国内实测：GitHub Pages 约 44KB/s（16.8MB 需要 6 分钟左右），国内镜像约 1.4MB/s（12 秒）。状态栏会显示"正在从国内镜像下载…"，方便判断当前走的是哪个源。</div>
+
 <h2>十、常见故障与排除</h2>
 <table>
 <tr><th>故障现象</th><th>可能原因</th><th>处理方法</th></tr>
@@ -318,6 +328,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.3.3</td><td>2026-10-29</td><td>更新支持多个下载源：国内镜像优先，某个源太慢（低于 50KB/s）或失败时自动换下一个；更新清单同样多源获取</td></tr>
 <tr><td>V1.3.2</td><td>2026-10-29</td><td>新增「关于」窗口（F1 或插件页「关于」按钮：版本号、官网链接、更新日志）；串口新增定时循环发送（可设毫秒间隔）与常用命令列表（存入 / 移除，自动记住）</td></tr>
 <tr><td>V1.3.1</td><td>2026-10-29</td><td>修复：部分电脑安装后启动弹出「Security validation failure」错误提示框（打包方式由单文件改为文件夹模式，启动更快，安装包体积从 20.7MB 降至 16.8MB）；功能与 V1.3.0 一致</td></tr>
 <tr><td>V1.3.0</td><td>2026-10-29</td><td>新增远程文件维护（新建/重命名/改权限/删除）、私钥登录、终端查找(Ctrl+F)、日志落盘、监控数据导出 CSV、传输可取消、单实例防重复启动、更新包 SHA256 校验；Modbus 与串口参数及监控点位自动记忆；密码改用系统 DPAPI 加密存储</td></tr>
