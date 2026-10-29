@@ -26,7 +26,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.10 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.11 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -118,6 +118,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>终端底部工具条提供「Ctrl+C（中断）」「清屏」「保存日志」；右键菜单可复制、粘贴、全选、保存终端输出；</li>
 <li>按 <code>Ctrl+F</code> 打开查找框：输入关键字即高亮全部匹配并显示命中数量，按回车或 <code>↓</code> 跳到下一处、<code>Shift+回车</code> 或 <code>↑</code> 跳上一处，<code>Esc</code> 关闭并清除高亮；</li>
 <li>向上滚动查看历史输出时，新输出不会把视图强行拽回底部；滚回最底部后恢复自动跟随。</li>
+<li><strong>常用命令</strong>：终端上方有「常用命令」下拉——直接输入命令点「发送」即执行；点「存入」把当前命令收进列表，下次下拉就能选；「移除」删掉当前这条。列表保存在本机，下次打开还在。</li>
 </ol>
 <table>
 <tr><th>快捷键</th><th>作用</th><th>快捷键</th><th>作用</th></tr>
@@ -129,7 +130,18 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td><code>F5</code></td><td>刷新当前列表</td><td><code>Ctrl+滚轮</code></td><td>终端字号缩放</td></tr>
 <tr><td><code>F1</code></td><td>打开「关于」窗口</td><td><code>Ctrl+T</code></td><td>窗口置顶开关</td></tr>
 </table>
-<div class="tip">💡 全局开关在标签栏最右侧的<strong>「设置」</strong>标签页里（和其他标签页一样直接切换）。里面是<strong>窗口置顶</strong>（对着文档或网页调设备时窗口不会被盖住，快捷键 Ctrl+T）和<strong>关键字高亮</strong>（终端与日志里的 ERROR / 失败 / 异常 标红、超时 / 警告 标黄，不想看可以关掉）。高亮的开关会记住，置顶不保存——下次启动默认不置顶；置顶生效时窗口标题会显示「[置顶]」。</div>
+<div class="tip">💡 全局开关在标签栏最右侧的<strong>「设置」</strong>标签页里（和其他标签页一样直接切换），共四个区：<strong>显示与窗口</strong>（窗口置顶、关键字高亮）、<strong>软件更新</strong>（检查更新、关于、官网链接）、<strong>连接</strong>（断线自动重连）、<strong>日志</strong>（记录到文件、打开日志目录）。高亮的开关会记住，置顶不保存——下次启动默认不置顶；置顶生效时窗口标题会显示「[置顶]」。</div>
+
+<h3>9.7 断线自动重连</h3>
+<p>Modbus 或串口<strong>意外断开</strong>时（网络抖动、转换器掉线、设备重启），软件会自己尝试重连，不用守在旁边手动点：</p>
+<ul>
+<li><strong>间隔递增</strong>：第 1 次等 2 秒，之后 4 → 8 → 16 → 30 秒，越往后越慢，不会疯狂刷；</li>
+<li><strong>最多 5 次</strong>：5 次都没成功就停手，状态栏提示"请手动连接"，不会一直耗着；</li>
+<li><strong>不动设备</strong>：重连只是重新建立连接，不会写任何寄存器；</li>
+<li><strong>手动断开不算</strong>：你自己点「断开」的，软件不会自作主张连回去；</li>
+<li><strong>可随时关掉</strong>：设置页 →「连接」区取消勾选即可；关闭软件也会立即取消排队中的重连。</li>
+</ul>
+<div class="warn">⚠️ 自动重连<strong>不覆盖 SSH</strong>——SSH 重连会丢掉原来的终端会话（正在跑的命令、当前目录都会没），风险大于收益，需要时请手动重连。轮询时<strong>单次读超时不会触发重连</strong>，只有底层连接真的断了才会，避免网络抖一下就来回重连。</div>
 <div class="warn">⚠️ 在终端执行 <code>rm</code>、<code>reboot</code> 等破坏性命令前，务必反复确认目标路径与服务器，防止误操作生产环境。</div>
 <div class="tip">💡 排障取证时用「保存日志」把整段终端输出存成 txt，比截图更便于检索和转发给同事。</div>
 
@@ -170,6 +182,15 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <div class="tip">💡 <strong>数值变化会短暂高亮</strong>（黄底）：高亮持续到下一次轮询，一眼就能看出这轮是哪个点位动了。首次读到值（从 <code>---</code> 变成真实值）不算变化，不会整片变黄。</div>
 
 <div class="danger">🚨 <strong>安全红线：</strong>对运行中的设备（尤其是控制物理动作的 PLC）写入任何寄存器前，必须与现场人员确认地址含义，擅自写入可能导致设备动作或生产事故！</div>
+
+<h3>6.5 点位备注名</h3>
+<p>点位多了全是 40001、40002，光看地址很难记住哪个是"主轴温度"、哪个是"油压"。可以给每个点位起个备注名：</p>
+<ol>
+<li>在监控表里<strong>右键</strong>某一点位 →「修改备注…」，输入名称（最多 40 个字）；</li>
+<li>备注显示在「地址」右边的「备注」列，导出 CSV 时也会带上这一列；</li>
+<li>备注只影响显示和导出，<strong>不会向设备写入任何数据</strong>，随点位一起保存。</li>
+</ol>
+<div class="warn">⚠️ 改备注要用<strong>右键菜单</strong>。监控表里<strong>双击某一行是「写入寄存器」</strong>，属于会改变设备状态的危险操作，两者不能混用。</div>
 
 <h2>七、串口调试操作流程</h2>
 <h3>7.1 打开串口</h3>
@@ -333,6 +354,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.3.11</td><td>2026-10-29</td><td>监控点位支持备注名（右键修改）；SSH 终端新增常用命令；设置页新增「连接」区（断线自动重连）与「日志」区（记录到文件、打开日志目录）</td></tr>
 <tr><td>V1.3.10</td><td>2026-10-29</td><td>设置改为正式标签页（不再弹窗），插件页的「检查更新」与官网链接收进设置页的「软件更新」区；设置页固定在标签栏最后一个，Ctrl+1~5 切换</td></tr>
 <tr><td>V1.3.9</td><td>2026-10-29</td><td>修复：点「设置」标签时会闪一下空白页（改为拦截点击直接弹窗，不再切换页面）</td></tr>
 <tr><td>V1.3.8</td><td>2026-10-29</td><td>设置改为标签栏最右侧的「设置」标签，点它弹出设置窗口，消除右侧空白竖条；置顶状态显示在窗口标题</td></tr>
