@@ -54,7 +54,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <h2>四、安装、升级与卸载</h2>
 <h3>4.1 安装</h3>
 <ol>
-<li>下载 <code>UltimateTool.exe</code> 安装包；</li>
+<li>下载 <code>UltimateTool.exe</code> 安装包（国内建议从镜像下载：<a href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">gitee.com/ooohhhxxx/tool-site</a>，约 1.3MB/s；GitHub 源在国内约 44KB/s，较慢）；</li>
 <li>若杀毒软件（Defender / 360 / 火绒等）告警，先加入信任/白名单（本工具为个人免费软件，未购买数字签名，告警属误报）；</li>
 <li>双击安装包，按向导提示"下一步"，可自行选择安装路径；</li>
 <li>安装完成后勾选"运行 调试工具"，桌面将生成快捷方式。</li>
@@ -294,7 +294,8 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li><strong>慢也算失败</strong>：某个源持续低于 50KB/s 且后面还有别的源时，软件会放弃它换下一个，不会让你对着不动的进度条干等；只剩最后一个源时不会中断，会一直下完；</li>
 <li>无论从哪个源下载，完成后都会做 SHA256 校验，源被替换或文件被篡改都能发现。</li>
 </ol>
-<div class="tip">💡 国内实测：GitHub Pages 约 44KB/s（16.8MB 需要 6 分钟左右），国内镜像约 1.4MB/s（12 秒）。状态栏会显示"正在从国内镜像下载…"，方便判断当前走的是哪个源。</div>
+<div class="tip">💡 国内实测：GitHub Pages 约 44KB/s（16.8MB 需要 6 分钟左右），国内镜像约 1.3MB/s（13 秒），<strong>快约 29 倍</strong>。状态栏会显示"正在从国内镜像下载…"，方便判断当前走的是哪个源。</div>
+<div class="warn">⚠️ 国内镜像走的是 Gitee 的 Release 附件通道。<strong>不能用仓库 raw 直链</strong>——Gitee 对未登录访问仓库内大文件会返回 403（<code>large file require login for access</code>），7KB 的小文件可以，16MB 的安装包不行。换用 Release 附件后免登录可正常下载。</div>
 
 <h2>十、常见故障与排除</h2>
 <table>

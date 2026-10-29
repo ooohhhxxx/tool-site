@@ -1,18 +1,22 @@
 {
   "version": "1.3.3",
   "date": "2026-10-29",
-  "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.3/UltimateTool.exe",
   "size": 16761378,
   "sha256": "2a63932a8bfa7769b0342d912c8730c5d4d7247b4b89ae8842c897408fc5a286",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/raw/main/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.3/UltimateTool.exe"
+    },
+    {
+      "name": "Gitee 最新版",
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe"
     },
     {
       "name": "GitHub",
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 更新支持多个下载源：国内镜像优先，某个源太慢或失败会自动换下一个\n2. 实测国内从 GitHub 下载只有约 44KB/s（16.8MB 要 6 分钟），走国内镜像约 12 秒\n3. 下载完成后仍会做 SHA256 校验，换源不影响安全性"
+  "notes": "1. 更新支持多个下载源：国内镜像优先，某个源太慢或失败会自动换下一个\n2. 实测国内从 GitHub 下载约 44KB/s（16.8MB 要 6 分钟），国内镜像约 1.3MB/s（13 秒）\n3. 下载完成后仍会做 SHA256 校验，换源不影响安全性"
 }
