@@ -1,13 +1,13 @@
 {
-  "version": "1.3.6",
+  "version": "1.3.7",
   "date": "2026-10-29",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.6/UltimateTool.exe",
-  "size": 16770165,
-  "sha256": "0b6aaad8dfdee9ffceb2b35092cf6dfd1cdec547418f61ee8b2058ab05a3032f",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.7/UltimateTool.exe",
+  "size": 16770338,
+  "sha256": "26375a588103432d6ff57d0c204f115f6afac222de8a69ddcaab1f830acd1973",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.6/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.7/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 新增「设置」窗口：窗口置顶与关键字高亮收在一处管理，顶栏只留一个入口\n2. 关键字高亮的开关会记住上次选择；窗口置顶不保存，下次启动默认不置顶\n3. 保留上一版的变化高亮、日志关键字高亮、文件列表过滤"
+  "notes": "界面调整：设置按钮移入标签页栏同一行右侧，去掉顶部多余的一排空白；窗口置顶时按钮变主色"
 }
