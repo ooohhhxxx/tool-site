@@ -26,7 +26,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.7 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.8 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -129,7 +129,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td><code>F5</code></td><td>刷新当前列表</td><td><code>Ctrl+滚轮</code></td><td>终端字号缩放</td></tr>
 <tr><td><code>F1</code></td><td>打开「关于」窗口</td><td><code>Ctrl+T</code></td><td>窗口置顶开关</td></tr>
 </table>
-<div class="tip">💡 全局开关集中在标签页栏右侧的<strong>「设置」</strong>里：<strong>窗口置顶</strong>（对着文档或网页调设备时窗口不会被盖住，快捷键 Ctrl+T）和<strong>关键字高亮</strong>（终端与日志里的 ERROR / 失败 / 异常 标红、超时 / 警告 标黄，不想看可以关掉）。高亮的开关会记住，置顶不保存——下次启动默认不置顶。</div>
+<div class="tip">💡 全局开关在标签栏最右侧的<strong>「设置」</strong>标签里：点它会弹出设置窗口（不会切到别的页面）。里面是<strong>窗口置顶</strong>（对着文档或网页调设备时窗口不会被盖住，快捷键 Ctrl+T）和<strong>关键字高亮</strong>（终端与日志里的 ERROR / 失败 / 异常 标红、超时 / 警告 标黄，不想看可以关掉）。高亮的开关会记住，置顶不保存——下次启动默认不置顶；置顶生效时窗口标题会显示「[置顶]」。</div>
 <div class="warn">⚠️ 在终端执行 <code>rm</code>、<code>reboot</code> 等破坏性命令前，务必反复确认目标路径与服务器，防止误操作生产环境。</div>
 <div class="tip">💡 排障取证时用「保存日志」把整段终端输出存成 txt，比截图更便于检索和转发给同事。</div>
 
@@ -334,7 +334,8 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
-<tr><td>V1.3.7</td><td>2026-10-29</td><td>界面：设置按钮移入标签页栏同一行右侧，去掉顶部多余的一排空白；窗口置顶时按钮变主色</td></tr>
+<tr><td>V1.3.8</td><td>2026-10-29</td><td>设置改为标签栏最右侧的「设置」标签，点它弹出设置窗口，消除右侧空白竖条；置顶状态显示在窗口标题</td></tr>
+<tr><td>V1.3.7</td><td>2026-10-29</td><td>界面：去掉顶部单独的工具条，设置入口与标签页栏同一行</td></tr>
 <tr><td>V1.3.6</td><td>2026-10-29</td><td>新增「设置」窗口：窗口置顶与关键字高亮集中管理（入口在标签页栏右侧）；高亮开关会记住选择</td></tr>
 <tr><td>V1.3.5</td><td>2026-10-29</td><td>新增监控数值变化高亮、终端与日志关键字高亮、文件列表实时过滤、窗口置顶(Ctrl+T)</td></tr>
 <tr><td>V1.3.4</td><td>2026-10-29</td><td>修复：更新清单的内置国内镜像地址分支名写错（main→master），导致检查更新实际仍在访问 GitHub；修正后检查更新也走国内镜像</td></tr>
