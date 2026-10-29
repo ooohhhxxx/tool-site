@@ -1,8 +1,8 @@
 {
-  "version": "1.3.0",
+  "version": "1.3.1",
   "date": "2026-10-29",
   "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe",
-  "size": 20707244,
-  "sha256": "d993d72ba0f206e628c2093f97e9cf845dc649da366c1e7de243e5c6807dc6de",
-  "notes": "1. 远程文件可新建文件夹 / 重命名 / 改权限 / 删除\n2. 新增密钥登录、终端查找(Ctrl+F)、日志落盘、监控数据导出 CSV、上传下载可取消\n3. Modbus 与串口参数、监控点位、列宽自动记忆；密码改用系统 DPAPI 加密\n4. 单实例防重复启动；更新包增加 SHA256 校验"
+  "size": 16757049,
+  "sha256": "34b4df55c71b691d88397b2dc86b247c719b172674f05140bf9d0f9236bbc4ca",
+  "notes": "1. 修复：部分机器安装后启动弹出「Security validation failure」错误框\n2. 打包方式改为文件夹模式，启动更快、安装包体积从 20.7MB 降到 16.8MB\n3. 功能与 v1.3.0 一致"
 }
