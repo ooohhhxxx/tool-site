@@ -25,7 +25,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.1.1 ｜ 生效日期：2026-10-28 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.2.0 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -60,7 +60,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 </ol>
 <h3>4.2 升级</h3>
 <ol>
-<li>直接下载新版本安装包并运行，安装到<strong>相同目录</strong>即可覆盖升级，无需先卸载；</li>
+<li><strong>推荐</strong>：打开软件 → 插件页 →「检查更新」，检测到新版本后一键下载安装（V1.2.0 起支持）；</li><li>也可以直接下载新版本安装包并运行，安装到<strong>相同目录</strong>即可覆盖升级，无需先卸载；</li>
 <li>连接历史记录、插件启停状态保存在用户目录（<code>~/.ssh_gui_history.json</code>、<code>~/.ssh_gui_plugins.json</code>），升级后自动保留；</li>
 <li>窗口大小与位置记录在 <code>~/.ssh_gui_ui.json</code>，如界面错乱可删除该文件后重启。</li>
 </ol>
@@ -196,9 +196,24 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 </ol>
 <div class="tip">💡 用户插件目录为 <code>~/.ssh_gui_plugins</code>，优先级高于内置插件；同名插件放在这里即可覆盖内置版本。</div>
 
-<h2>九、常见故障与排除</h2>
+<h2>九、软件更新</h2>
+<h3>9.1 自动检查</h3>
+<p>软件每次启动 5 秒后会在后台自动检查是否有新版本（不阻塞使用）。发现新版本时会弹窗提示版本号与更新内容，可直接选择下载安装；没有新版本或网络不通时不会打扰操作。</p>
+<h3>9.2 手动检查与一键更新</h3>
+<ol>
+<li>切换到"插件"标签页，找到下方"软件更新"区域，点"检查更新"；</li>
+<li>检测到新版本后，按钮变为"立即更新"，点击开始下载，进度条显示百分比与已下载大小；</li>
+<li>下载完成后选择"是"，软件会先退出并自动启动安装程序，按提示完成安装后重新打开即可；</li>
+<li>选择"否"则安装包保留在本地临时目录，稍后双击该文件也能完成更新。</li>
+</ol>
+<h3>9.3 网络受限时</h3>
+<p>若公司网络无法访问更新服务器，"软件更新"区会提示"检查失败"，此时点击下方的<strong>官网链接</strong>（或手动访问 <code>https://ooohhhxxx.github.io/tool-site/</code>）下载最新安装包，覆盖安装即可，连接记录与插件配置都会保留。</p>
+<div class="tip">💡 自动检查只读取一个几 KB 的版本清单，不下载安装包，不会影响启动速度；确需关闭可在启动前设置环境变量 <code>ULTIMATE_TOOL_NO_UPDATE=1</code>。</div>
+
+<h2>十、常见故障与排除</h2>
 <table>
 <tr><th>故障现象</th><th>可能原因</th><th>处理方法</th></tr>
+<tr><td>检查更新提示失败</td><td>公司网络无法访问外网更新服务器</td><td>点更新区下方官网链接手动下载安装包覆盖安装</td></tr>
 <tr><td>软件被杀毒告警/删除</td><td>未签名个人软件误报</td><td>杀毒软件隔离区恢复，添加信任/白名单后运行</td></tr>
 <tr><td>SSH 连接失败</td><td>IP/端口/密码错误；服务器未开 SSH；防火墙拦截</td><td>逐项核对参数；确认服务器放行 22 端口</td></tr>
 <tr><td>SSH 终端中文乱码</td><td>服务端语言环境为 GBK</td><td>"编码"下拉切换为 GBK 后重新连接</td></tr>
@@ -213,7 +228,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <tr><td>窗口尺寸异常</td><td>显示分辨率变化</td><td>删除 <code>~/.ssh_gui_ui.json</code> 后重启，窗口恢复默认尺寸</td></tr>
 </table>
 
-<h2>十、安全与注意事项</h2>
+<h2>十一、安全与注意事项</h2>
 <ul>
 <li>本工具将 SSH 密码加密保存在本机，请勿在公共电脑上保存敏感服务器记录；</li>
 <li>Modbus / 串口写操作为<strong>实时不可逆动作</strong>，执行前必须二次确认；</li>
@@ -223,10 +238,11 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>本工具完全免费，不收集任何用户数据。</li>
 </ul>
 
-<h2>十一、版本记录</h2>
+<h2>十二、版本记录</h2>
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
 <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+<tr><td>V1.2.0</td><td>2026-10-29</td><td>新增软件在线更新：插件页提供「检查更新」按钮与官网链接，启动时自动检查新版本，支持一键下载安装，无需再手动访问网站下载</td></tr>
 <tr><td>V1.1.1</td><td>2026-10-28</td><td>软件名称统一为「SSH &amp; Modbus &amp; 串口 调试工具」，窗口标题去掉冗余字样；功能与 V1.1 一致</td></tr>
 <tr><td>V1.1</td><td>2026-10-28</td><td>界面改为浅色主题并适配高分屏；终端支持缩放与保存输出；文件管理支持多选上传与右键菜单；Modbus 增加数值/地址进制切换、连续地址合并读取；串口增加编码选择、暂停显示与发送历史；修复保持寄存器写入无响应、下载进度不走等问题；性能优化（终端渲染约 3 倍、串口高速收包数十倍）</td></tr>
 </table>
