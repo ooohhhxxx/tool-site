@@ -54,6 +54,13 @@ nav a.link:hover{color:#fff}
 .release .updates{max-width:none;margin:0;padding:0}
 .rel-head{display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:1px solid #1e293b;margin-bottom:2px}
 .rel-ver{font-size:21px;font-weight:800;color:#38bdf8}
+.older-releases{margin-top:16px;border-top:1px dashed #d6dde8;padding-top:8px}
+.older-releases>summary{cursor:pointer;color:#64748b;font-size:14px;padding:6px 0;list-style:none;user-select:none}
+.older-releases>summary::-webkit-details-marker{display:none}
+.older-releases>summary:before{content:"▸ ";display:inline-block}
+.older-releases[open]>summary:before{content:"▾ "}
+.older-releases>summary:hover{color:#2563eb}
+.older-releases[open]>summary{margin-bottom:12px;color:#2563eb}
 .rel-date{color:#64748b;font-size:13px}
 .rel-badge{font-size:12px;padding:2px 10px;border-radius:999px;background:#064e3b;color:#6ee7b7}
 @media(max-width:640px){.update-hint{flex-direction:column;align-items:flex-start}.rel-head{flex-wrap:wrap}}
@@ -177,6 +184,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
+<details class="older-releases">
+  <summary>查看更早的版本（v1.3.8 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.8</span>
@@ -314,6 +323,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <span class="rel-ver">v1.1</span>
     <span class="rel-date">2026-10-28</span>
   </div>
+
   <div class="updates">
     <div class="row"><div class="tag new">体验</div><div class="txt">全新浅色界面：分组更清晰，主操作按钮高亮，长时间盯屏更舒服。</div></div>
     <div class="row"><div class="tag new">体验</div><div class="txt">适配高分辨率屏幕，字体锐利不发虚；窗口大小与位置自动记住。</div></div>
@@ -327,6 +337,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <div class="row"><div class="tag fix">修复</div><div class="txt">修复下载进度条不走、下载大文件时界面卡住的问题。</div></div>
   </div>
 </div>
+</details>
+
 
 <h2 class="section-title" id="usage">使用方法</h2>
 <p class="section-sub">只需三步，即可上手</p>

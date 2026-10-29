@@ -17,6 +17,9 @@ th{background:#e0e7ff}
 .danger{background:#fef2f2;border:1px solid #ef4444;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px}
 .tip{background:#eff6ff;border:1px solid #60a5fa;border-radius:8px;padding:12px 16px;margin:12px 0;font-size:14px}
 ol li,ul li{margin:6px 0}
+.older-versions{margin:10px 0}
+.older-versions>summary{cursor:pointer;color:#2563eb;font-size:14px;padding:8px 0;user-select:none}
+.older-versions>summary:hover{text-decoration:underline}
 code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,monospace}
 .meta{text-align:center;color:#64748b;font-size:13px;margin-bottom:30px}
 .print-btn{position:fixed;top:20px;right:20px;padding:10px 20px;background:#2563eb;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:14px;box-shadow:0 4px 12px rgba(37,99,235,.4)}
@@ -353,25 +356,38 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <h2>十二、版本记录</h2>
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
-<tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
 <tr><td>V1.3.11</td><td>2026-10-29</td><td>监控点位支持备注名（右键修改）；SSH 终端新增常用命令；设置页新增「连接」区（断线自动重连）与「日志」区（记录到文件、打开日志目录）</td></tr>
 <tr><td>V1.3.10</td><td>2026-10-29</td><td>设置改为正式标签页（不再弹窗），插件页的「检查更新」与官网链接收进设置页的「软件更新」区；设置页固定在标签栏最后一个，Ctrl+1~5 切换</td></tr>
 <tr><td>V1.3.9</td><td>2026-10-29</td><td>修复：点「设置」标签时会闪一下空白页（改为拦截点击直接弹窗，不再切换页面）</td></tr>
-<tr><td>V1.3.8</td><td>2026-10-29</td><td>设置改为标签栏最右侧的「设置」标签，点它弹出设置窗口，消除右侧空白竖条；置顶状态显示在窗口标题</td></tr>
-<tr><td>V1.3.7</td><td>2026-10-29</td><td>界面：去掉顶部单独的工具条，设置入口与标签页栏同一行</td></tr>
-<tr><td>V1.3.6</td><td>2026-10-29</td><td>新增「设置」窗口：窗口置顶与关键字高亮集中管理（入口在标签页栏右侧）；高亮开关会记住选择</td></tr>
-<tr><td>V1.3.5</td><td>2026-10-29</td><td>新增监控数值变化高亮、终端与日志关键字高亮、文件列表实时过滤、窗口置顶(Ctrl+T)</td></tr>
-<tr><td>V1.3.4</td><td>2026-10-29</td><td>修复：更新清单的内置国内镜像地址分支名写错（main→master），导致检查更新实际仍在访问 GitHub；修正后检查更新也走国内镜像</td></tr>
-<tr><td>V1.3.3</td><td>2026-10-29</td><td>更新支持多个下载源：国内镜像优先，某个源太慢（低于 50KB/s）或失败时自动换下一个；更新清单同样多源获取</td></tr>
-<tr><td>V1.3.2</td><td>2026-10-29</td><td>新增「关于」窗口（F1 或插件页「关于」按钮：版本号、官网链接、更新日志）；串口新增定时循环发送（可设毫秒间隔）与常用命令列表（存入 / 移除，自动记住）</td></tr>
-<tr><td>V1.3.1</td><td>2026-10-29</td><td>修复：部分电脑安装后启动弹出「Security validation failure」错误提示框（打包方式由单文件改为文件夹模式，启动更快，安装包体积从 20.7MB 降至 16.8MB）；功能与 V1.3.0 一致</td></tr>
-<tr><td>V1.3.0</td><td>2026-10-29</td><td>新增远程文件维护（新建/重命名/改权限/删除）、私钥登录、终端查找(Ctrl+F)、日志落盘、监控数据导出 CSV、传输可取消、单实例防重复启动、更新包 SHA256 校验；Modbus 与串口参数及监控点位自动记忆；密码改用系统 DPAPI 加密存储</td></tr>
-<tr><td>V1.2.1</td><td>2026-10-29</td><td>新增专属程序图标（桌面快捷方式 / 任务栏 / 窗口 / 安装程序）；官网同步更换图标；功能与 V1.2.0 一致</td></tr>
-<tr><td>V1.2.0</td><td>2026-10-29</td><td>新增软件在线更新：插件页提供「检查更新」按钮与官网链接，启动时自动检查新版本，支持一键下载安装，无需再手动访问网站下载</td></tr>
-<tr><td>V1.1.1</td><td>2026-10-28</td><td>软件名称统一为「SSH &amp; Modbus &amp; 串口 调试工具」，窗口标题去掉冗余字样；功能与 V1.1 一致</td></tr>
-<tr><td>V1.1</td><td>2026-10-28</td><td>界面改为浅色主题并适配高分屏；终端支持缩放与保存输出；文件管理支持多选上传与右键菜单；Modbus 增加数值/地址进制切换、连续地址合并读取；串口增加编码选择、暂停显示与发送历史；修复保持寄存器写入无响应、下载进度不走等问题；性能优化（终端渲染约 3 倍、串口高速收包数十倍）</td></tr>
 </table>
 
+<details class="older-versions">
+  <summary>展开查看更早的版本（V1.3.8 及之前）</summary>
+  <table>
+  <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
+  <tr><td>V1.3.8</td><td>2026-10-29</td><td>设置改为标签栏最右侧的「设置」标签，点它弹出设置窗口，消除右侧空白竖条；置顶状态显示在窗口标题</td></tr>
+  <tr><td>V1.3.7</td><td>2026-10-29</td><td>界面：去掉顶部单独的工具条，设置入口与标签页栏同一行</td></tr>
+  <tr><td>V1.3.6</td><td>2026-10-29</td><td>新增「设置」窗口：窗口置顶与关键字高亮集中管理（入口在标签页栏右侧）；高亮开关会记住选择</td></tr>
+  <tr><td>V1.3.5</td><td>2026-10-29</td><td>新增监控数值变化高亮、终端与日志关键字高亮、文件列表实时过滤、窗口置顶(Ctrl+T)</td></tr>
+  <tr><td>V1.3.4</td><td>2026-10-29</td><td>修复：更新清单的内置国内镜像地址分支名写错（main→master），导致检查更新实际仍在访问 GitHub；修正后检查更新也走国内镜像</td></tr>
+  <tr><td>V1.3.3</td><td>2026-10-29</td><td>更新支持多个下载源：国内镜像优先，某个源太慢（低于 50KB/s）或失败时自动换下一个；更新清单同样多源获取</td></tr>
+  <tr><td>V1.3.2</td><td>2026-10-29</td><td>新增「关于」窗口（F1 或插件页「关于」按钮：版本号、官网链接、更新日志）；串口新增定时循环发送（可设毫秒间隔）与常用命令列表（存入 / 移除，自动记住）</td></tr>
+  <tr><td>V1.3.1</td><td>2026-10-29</td><td>修复：部分电脑安装后启动弹出「Security validation failure」错误提示框（打包方式由单文件改为文件夹模式，启动更快，安装包体积从 20.7MB 降至 16.8MB）；功能与 V1.3.0 一致</td></tr>
+  <tr><td>V1.3.0</td><td>2026-10-29</td><td>新增远程文件维护（新建/重命名/改权限/删除）、私钥登录、终端查找(Ctrl+F)、日志落盘、监控数据导出 CSV、传输可取消、单实例防重复启动、更新包 SHA256 校验；Modbus 与串口参数及监控点位自动记忆；密码改用系统 DPAPI 加密存储</td></tr>
+  <tr><td>V1.2.1</td><td>2026-10-29</td><td>新增专属程序图标（桌面快捷方式 / 任务栏 / 窗口 / 安装程序）；官网同步更换图标；功能与 V1.2.0 一致</td></tr>
+  <tr><td>V1.2.0</td><td>2026-10-29</td><td>新增软件在线更新：插件页提供「检查更新」按钮与官网链接，启动时自动检查新版本，支持一键下载安装，无需再手动访问网站下载</td></tr>
+  <tr><td>V1.1.1</td><td>2026-10-28</td><td>软件名称统一为「SSH &amp; Modbus &amp; 串口 调试工具」，窗口标题去掉冗余字样；功能与 V1.1 一致</td></tr>
+  <tr><td>V1.1</td><td>2026-10-28</td><td>界面改为浅色主题并适配高分屏；终端支持缩放与保存输出；文件管理支持多选上传与右键菜单；Modbus 增加数值/地址进制切换、连续地址合并读取；串口增加编码选择、暂停显示与发送历史；修复保持寄存器写入无响应、下载进度不走等问题；性能优化（终端渲染约 3 倍、串口高速收包数十倍）</td></tr>
+  <tr><td>V1.0</td><td>2026-08-24</td><td>首次发布：SSH + Modbus TCP + 串口 三合一</td></tr>
+  </table>
+</details>
+
 <p style="text-align:center;color:#94a3b8;margin-top:50px;font-size:13px">— 本文档结束 —</p>
+<script>
+// 打印 / 存 PDF 前先把折叠的历史版本展开，否则纸面上会缺内容
+window.addEventListener('beforeprint', function () {
+    document.querySelectorAll('details').forEach(function (d) { d.open = true; });
+});
+</script>
 </body>
 </html>
