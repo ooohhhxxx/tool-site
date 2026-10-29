@@ -1,13 +1,13 @@
 {
-  "version": "1.3.11",
+  "version": "1.3.12",
   "date": "2026-10-29",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.11/UltimateTool.exe",
-  "size": 16777842,
-  "sha256": "d40e54fdb22ff73f183843eecb3322b7474da68d0c31bba68c0ed91a363d2a57",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.12/UltimateTool.exe",
+  "size": 16779935,
+  "sha256": "397b8ba7727790c03853436b0c2b40aa39cdea9f70ec09855aac01c1e93b618d",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.11/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.12/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 监控点位支持备注名：右键给地址起个好记的名字（如「主轴温度」），导出 CSV 也带上\n2. SSH 终端新增常用命令：下拉选中直接发送，可存入/移除\n3. 设置页新增「连接」区（断线自动重连）与「日志」区（记录到文件、打开日志目录）\n4. 自动重连带保护：间隔 2/4/8/16/30 秒递增、最多 5 次、手动断开不重连"
+  "notes": "修复：启动时先闪一个空白窗口的问题——界面搭好后再显示；同时清理了每次启动都往临时目录写调试日志的遗留代码"
 }
