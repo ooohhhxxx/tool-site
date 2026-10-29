@@ -2,7 +2,7 @@
   "version": "1.3.0",
   "date": "2026-10-29",
   "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe",
-  "size": 20707757,
-  "sha256": "a08a13f7586c23ceb54bb625d840ea68ea858ff5cdcb34179c2c6bea22c36109",
+  "size": 20707244,
+  "sha256": "d993d72ba0f206e628c2093f97e9cf845dc649da366c1e7de243e5c6807dc6de",
   "notes": "1. 远程文件可新建文件夹 / 重命名 / 改权限 / 删除\n2. 新增密钥登录、终端查找(Ctrl+F)、日志落盘、监控数据导出 CSV、上传下载可取消\n3. Modbus 与串口参数、监控点位、列宽自动记忆；密码改用系统 DPAPI 加密\n4. 单实例防重复启动；更新包增加 SHA256 校验"
 }
