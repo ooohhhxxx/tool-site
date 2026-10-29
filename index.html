@@ -39,6 +39,19 @@ nav a.link:hover{color:#fff}
 .step .num{flex:0 0 36px;height:36px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold}
 .step .txt{color:#cbd5e1}
 .notice{max-width:800px;margin:40px auto;padding:20px 26px;background:#42200633;border:1px solid #b45309;border-radius:12px;color:#fbbf24;font-size:14px}
+.update-hint{max-width:860px;margin:0 auto 34px;padding:22px 26px;background:linear-gradient(90deg,#1e293b,#1e2b46);border:1px solid #334155;border-radius:16px;display:flex;gap:18px;align-items:center}
+.update-hint .uh-icon{font-size:30px;flex:0 0 auto}
+.update-hint .uh-text{flex:1}
+.update-hint .uh-text strong{color:#f1f5f9;font-size:17px}
+.update-hint .uh-text p{color:#94a3b8;font-size:14px;margin-top:4px}
+.update-hint .uh-btn{flex:0 0 auto;padding:11px 22px;border-radius:999px;background:#2563eb;color:#fff;font-size:14px;font-weight:bold;transition:.2s}
+.update-hint .uh-btn:hover{background:#1d4ed8;transform:translateY(-1px)}
+.release{max-width:800px;margin:0 auto 30px;padding:0 20px}
+.rel-head{display:flex;align-items:center;gap:12px;padding-bottom:10px;border-bottom:1px solid #1e293b;margin-bottom:2px}
+.rel-ver{font-size:21px;font-weight:800;color:#38bdf8}
+.rel-date{color:#64748b;font-size:13px}
+.rel-badge{font-size:12px;padding:2px 10px;border-radius:999px;background:#064e3b;color:#6ee7b7}
+@media(max-width:640px){.update-hint{flex-direction:column;align-items:flex-start}.rel-head{flex-wrap:wrap}}
 footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-top:1px solid #1e293b;margin-top:60px}
 </style>
 </head>
@@ -111,21 +124,47 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 </div>
 
 <h2 class="section-title" id="changelog">更新内容</h2>
-<p class="section-sub">v1.2.0 ｜ 2026-10-29 发布</p>
-<div class="updates">
-  <div class="row"><div class="tag new">新增</div><div class="txt">插件页新增「软件更新」：打开软件自动检查新版本，发现更新后可一键下载安装，不必再回网站手动下载。</div></div>
-  <div class="row"><div class="tag new">新增</div><div class="txt">更新区下方提供官网直达链接，任何情况下都能回到下载页。</div></div>
-  <div class="row"><div class="tag">调整</div><div class="txt">软件名称统一为「SSH &amp; Modbus &amp; 串口 调试工具」，标题中不再带冗余字样，功能无变化。</div></div>
-  <div class="row"><div class="tag new">体验</div><div class="txt">全新浅色界面：分组更清晰，主操作按钮高亮，长时间看屏幕更舒服。</div></div>
-  <div class="row"><div class="tag new">体验</div><div class="txt">适配高分辨率屏幕，字体锐利不发虚；窗口大小与位置会自动记住。</div></div>
-  <div class="row"><div class="tag new">新增</div><div class="txt">终端支持 Ctrl+滚轮缩放字号、一键保存终端输出到本地文本。</div></div>
-  <div class="row"><div class="tag new">新增</div><div class="txt">文件管理支持多选批量上传、右键菜单、双击文件直接下载。</div></div>
-  <div class="row"><div class="tag new">新增</div><div class="txt">Modbus 监控表可切换十进制 / 十六进制 / 有符号显示，地址同样支持十六进制。</div></div>
-  <div class="row"><div class="tag new">新增</div><div class="txt">串口接收编码可选（解决 GBK 设备中文乱码），支持暂停显示与发送历史。</div></div>
-  <div class="row"><div class="tag">优化</div><div class="txt">大量输出时界面明显更流畅：终端渲染提速约 3 倍，串口高速收包提速数十倍。</div></div>
-  <div class="row"><div class="tag">优化</div><div class="txt">Modbus 轮询改为连续地址合并读取、数值未变不重绘，几百点位也不卡顿。</div></div>
-  <div class="row"><div class="tag fix">修复</div><div class="txt">修复监控表里保持寄存器点「写入修改」无反应的问题。</div></div>
-  <div class="row"><div class="tag fix">修复</div><div class="txt">修复下载进度条不走、下载大文件时界面卡住的问题。</div></div>
+<p class="section-sub">装一次，之后打开软件就能收到更新提醒</p>
+
+<div class="update-hint">
+  <div class="uh-icon">🔄</div>
+  <div class="uh-text">
+    <strong>内置在线更新，不用再回这个页面找安装包</strong>
+    <p>软件每次启动会静默检查新版本，发现更新时弹窗提示，点一下即可下载安装；安装包自带覆盖升级，连接记录与插件配置全部保留。</p>
+  </div>
+  <a class="uh-btn" href="./SOP.html">更新说明</a>
+</div>
+
+<div class="release">
+  <div class="rel-head">
+    <span class="rel-ver">v1.2.0</span>
+    <span class="rel-date">2026-10-29</span>
+    <span class="rel-badge">最新</span>
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag new">新增</div><div class="txt">插件页新增「软件更新」区：启动自动检查新版本，手动点一下即可下载安装，不必再去网站找安装包。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">更新区下方提供官网直达链接，网络受限时也能一键回到下载页。</div></div>
+    <div class="row"><div class="tag">调整</div><div class="txt">软件名称统一为「SSH &amp; Modbus &amp; 串口 调试工具」，去掉标题里的冗余字样。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
+    <span class="rel-ver">v1.1</span>
+    <span class="rel-date">2026-10-28</span>
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag new">体验</div><div class="txt">全新浅色界面：分组更清晰，主操作按钮高亮，长时间盯屏更舒服。</div></div>
+    <div class="row"><div class="tag new">体验</div><div class="txt">适配高分辨率屏幕，字体锐利不发虚；窗口大小与位置自动记住。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">终端支持 Ctrl+滚轮缩放字号、一键保存终端输出到本地文本。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">文件管理支持多选批量上传、右键菜单、双击文件直接下载。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">Modbus 监控表可切换十进制 / 十六进制 / 有符号显示，地址同样支持十六进制。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">串口接收编码可选（解决 GBK 设备中文乱码），支持暂停显示与发送历史。</div></div>
+    <div class="row"><div class="tag">优化</div><div class="txt">大量输出时界面明显更流畅：终端渲染提速约 3 倍，串口高速收包提速数十倍。</div></div>
+    <div class="row"><div class="tag">优化</div><div class="txt">Modbus 轮询改为连续地址合并读取、数值未变不重绘，几百点位也不卡顿。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt">修复监控表里保持寄存器点「写入修改」无反应的问题。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt">修复下载进度条不走、下载大文件时界面卡住的问题。</div></div>
+  </div>
 </div>
 
 <h2 class="section-title" id="usage">使用方法</h2>
@@ -133,7 +172,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 <div class="steps">
   <div class="step"><div class="num">1</div><div class="txt">点击页面顶部“立即免费下载”按钮，下载安装包。</div></div>
   <div class="step"><div class="num">2</div><div class="txt">双击安装包，一路“下一步”完成安装（自动创建桌面快捷方式）。</div></div>
-  <div class="step"><div class="num">3</div><div class="txt">打开软件，顶部切换 SSH / Modbus / 串口 / 插件 四个标签页即可使用。</div></div>
+  <div class="step"><div class="num">3</div><div class="txt">打开软件，顶部切换 SSH / Modbus / 串口 / 插件 四个标签页即可使用。之后有新版本，软件会自动提醒，点一下就能升级。</div></div>
 </div>
 
 <div class="notice">
