@@ -1,13 +1,13 @@
 {
-  "version": "1.3.19",
+  "version": "1.3.20",
   "date": "2026-10-30",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.19/UltimateTool.exe",
-  "size": 16793389,
-  "sha256": "91ef748839188907f19c2613db5b00f6d49d9b8d0cf17d31d0600fa48c5c64de",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.20/UltimateTool.exe",
+  "size": 16795439,
+  "sha256": "7e2d315f5d1032c74b5dcee9deba417d9978e437e88b4bc2cc95c927145ebde3",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.19/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.20/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 串口接收区、Modbus 日志、插件日志补上右键菜单：复制 / 全选 / 清空（终端区早就有，这三个一直缺）\n2. 关键控件加了悬停说明：密码眼睛、密钥、存入/移除、数值格式、写入修改、循环发送等\n3. 监控表右键可以「复制全部数据」，Ctrl+V 直接粘进 Excel 就是一张表\n4. 标签页标题加了连接状态点（● 已连接 / ○ 未连接），在别的页面也能看出哪路还连着\n5. 状态栏提示了 F1 帮助和 Ctrl+1~5 切页"
+  "notes": "1. 配置改为原子写入：先写临时文件再整体替换。以前是直接覆盖，断电或崩溃会把文件截成半截，下次启动参数和点位全丢（还一声不响）\n2. 点位增删后立刻存盘，不再等程序正常退出。加到一半崩溃/断电也不会白加\n3. 窗口大小位置、SSH 连接记录同样改成原子写入；保存失败会计提示，不再静默失败"
 }
