@@ -1,13 +1,13 @@
 {
-  "version": "1.3.12",
+  "version": "1.3.13",
   "date": "2026-10-29",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.12/UltimateTool.exe",
-  "size": 16779935,
-  "sha256": "397b8ba7727790c03853436b0c2b40aa39cdea9f70ec09855aac01c1e93b618d",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.13/UltimateTool.exe",
+  "size": 16780229,
+  "sha256": "6a6d8d534f381f8845827a4a47d56c57de3990af28a2c31a507326f31933e6e7",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.12/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.13/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "修复：启动时先闪一个空白窗口的问题——界面搭好后再显示；同时清理了每次启动都往临时目录写调试日志的遗留代码"
+  "notes": "1. Modbus 的 IP 会记住连过的地址，下拉直接选（最多 12 个）\n2. 串口手动发送后输入框保留内容并全选，改两个字符就能再发一次\n3. 写寄存器前弹确认（显示地址与新值），可勾「本次不再提示」"
 }

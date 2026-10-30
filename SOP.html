@@ -29,7 +29,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.12 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.3.13 ｜ 生效日期：2026-10-29 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -155,6 +155,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>填写设备 IP、端口（Modbus 默认 502）、超时时间（默认 3000ms，网络差可加大）；</li>
 <li>点击"连接"，状态栏显示"Modbus: 已连接"即成功。</li>
 </ol>
+<div class="tip">💡 IP 输入框是个<strong>下拉框</strong>：连过的地址会自动记下来（最多 12 个，最近连的排最前），下次点一下就能选，不用每次手敲。端口、超时同样会记住。</div>
 <h3>6.2 功能码与软件入口对照</h3>
 <table>
 <tr><th>功能码</th><th>含义</th><th>本软件中的入口</th></tr>
@@ -184,6 +185,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <div class="tip">💡 监控点位很多时，软件会把<strong>地址连续、功能码相同</strong>的点合并成一次读取，几百个点位也能流畅轮询；数值没有变化的行不会重复刷新，界面不会闪。</div>
 <div class="tip">💡 <strong>数值变化会短暂高亮</strong>（黄底）：高亮持续到下一次轮询，一眼就能看出这轮是哪个点位动了。首次读到值（从 <code>---</code> 变成真实值）不算变化，不会整片变黄。</div>
 
+<div class="warn">⚠️ <strong>写入会先弹一次确认</strong>：显示"地址 X ← 新值 Y"，确认后才真正下发；框里可勾「本次调试不再提示」（只在本次软件运行期间有效，下次启动仍会确认）。</div>
 <div class="danger">🚨 <strong>安全红线：</strong>对运行中的设备（尤其是控制物理动作的 PLC）写入任何寄存器前，必须与现场人员确认地址含义，擅自写入可能导致设备动作或生产事故！</div>
 
 <h3>6.5 点位备注名</h3>
@@ -211,6 +213,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>在发送框按 <code>↑ / ↓</code> 可回翻最近 50 条发送内容，重复下发不用重新敲；</li>
 <li>点击"发送数据"或按回车发送。</li>
 </ol>
+<div class="tip">💡 发送后输入框会<strong>保留内容并保持全选</strong>：直接打字就覆盖，想原样再发一次直接按回车就行。现场常是"发一条 → 看回复 → 改两个字符再发"，不用反复重敲。</div>
 <h3>7.2.1 定时循环发送</h3>
 <ol>
 <li>勾选"定时循环发送"，在右侧输入框填写间隔（单位毫秒，最小 50，默认 1000）；</li>
@@ -356,13 +359,14 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <h2>十二、版本记录</h2>
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
+<tr><td>V1.3.13</td><td>2026-10-30</td><td>舒适度：Modbus 的 IP 记历史下拉；串口发送后保留内容并全选；写寄存器前弹确认（可勾「本次不再提示」）</td></tr>
 <tr><td>V1.3.12</td><td>2026-10-29</td><td>修复：启动时先闪一个空白窗口（界面搭好后再显示）；清理每次启动都往临时目录写调试日志的遗留代码</td></tr>
 <tr><td>V1.3.11</td><td>2026-10-29</td><td>监控点位支持备注名（右键修改）；SSH 终端新增常用命令；设置页新增「连接」区（断线自动重连）与「日志」区（记录到文件、打开日志目录）</td></tr>
-<tr><td>V1.3.10</td><td>2026-10-29</td><td>设置改为正式标签页（不再弹窗），插件页的「检查更新」与官网链接收进设置页的「软件更新」区；设置页固定在标签栏最后一个，Ctrl+1~5 切换</td></tr>
 </table>
 
 <details class="older-versions">
-  <summary>展开查看更早的版本（V1.3.9 及之前）</summary>
+  <summary>展开查看更早的版本（V1.3.10 及之前）</summary>
+  <tr><td>V1.3.10</td><td>2026-10-29</td><td>设置改为正式标签页（不再弹窗），插件页的「检查更新」与官网链接收进设置页的「软件更新」区；设置页固定在标签栏最后一个，Ctrl+1~5 切换</td></tr>
   <tr><td>V1.3.9</td><td>2026-10-29</td><td>修复：点「设置」标签时会闪一下空白页（改为拦截点击直接弹窗，不再切换页面）</td></tr>
   <table>
   <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
