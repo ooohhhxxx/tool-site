@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.13 ｜ 更新于 2026-10-29 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.14 ｜ 更新于 2026-10-30 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -150,6 +150,20 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <div class="release">
   <div class="rel-head">
+    <span class="rel-ver">v1.3.14</span>
+    <span class="rel-date">2026-10-30</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>串口功能不可用</strong>：接收线程把「断线判定」写进了循环体，串口一打开就被自己判成掉线，自动重连 5 次后放弃。现已恢复正常收发。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>自动轮询会失效</strong>：按一次 F5 手动刷新后，轮询闸门卡住，界面数值再也不更新（且没有任何提示）。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt">暂停日志时文件记录也跟着断了；日志改为逐行落盘，程序被强杀也不丢最后几行。</div></div>
+    <div class="row"><div class="tag">优化</div><div class="txt">后台界面回调统一走线程安全通道，修掉偶发卡死；退出时三路连接各自独立收尾。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
     <span class="rel-ver">v1.3.13</span>
     <span class="rel-date">2026-10-30</span>
 
@@ -173,6 +187,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
+<details class="older-releases">
+  <summary>查看更早的版本（v1.3.11 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.11</span>
@@ -185,9 +201,6 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <div class="row"><div class="tag">安全</div><div class="txt">自动重连带保护：间隔 2/4/8/16/30 秒递增、最多 5 次、手动点「断开」的不会自己连回去。</div></div>
   </div>
 </div>
-
-<details class="older-releases">
-  <summary>查看更早的版本（v1.3.10 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.10</span>

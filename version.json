@@ -1,13 +1,13 @@
 {
-  "version": "1.3.13",
-  "date": "2026-10-29",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.13/UltimateTool.exe",
-  "size": 16780229,
-  "sha256": "6a6d8d534f381f8845827a4a47d56c57de3990af28a2c31a507326f31933e6e7",
+  "version": "1.3.14",
+  "date": "2026-10-30",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.14/UltimateTool.exe",
+  "size": 16777091,
+  "sha256": "d9367e541f3c1ce377aa3d2bbf57b5f41e05f95aea9e710693cb3070391d4842",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.13/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.14/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. Modbus 的 IP 会记住连过的地址，下拉直接选（最多 12 个）\n2. 串口手动发送后输入框保留内容并全选，改两个字符就能再发一次\n3. 写寄存器前弹确认（显示地址与新值），可勾「本次不再提示」"
+  "notes": "1. 修复串口：一打开就被误判成断线（自动重连 5 次后放弃），串口实际不可用\n2. 修复 Modbus：手动刷新一次后，自动轮询不再刷新数值\n3. 暂停日志时文件记录不再跟着断，日志改为逐行落盘\n4. 后台界面回调统一走线程安全通道，避免偶发卡死"
 }
