@@ -1,13 +1,13 @@
 {
-  "version": "1.3.23",
+  "version": "1.3.24",
   "date": "2026-10-31",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.23/UltimateTool.exe",
-  "size": 16805017,
-  "sha256": "f3289b0bcd8c32374df27722637d008f3b73826b5fd46637ddd2db26e7dd028a",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.24/UltimateTool.exe",
+  "size": 16816143,
+  "sha256": "0b9999b68fc290a95371b183b7efd5d5ca39f736ffa4943b671d782ec1216946",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.23/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.24/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 已连接或正在连接时再按回车，不会再发起第二次连接（以前会覆盖旧连接且从不关闭，网络会话一直泄漏）\n2. 连接失败提示更可信：不会再出现「界面报失败、实际还连着」的状态错乱\n3. Modbus 与串口的自动重连状态已按通道拆开：两路同时断线不再互相顶掉，关串口也不会取消 Modbus 的重连倒计时，重试次数各算各的\n4. 配置文件损坏时会先备份成 .bak-时间戳 再按默认值启动，并弹窗说明，不再静默清空后覆盖\n5. 监控表右键菜单改为复用，长时间使用不再累积菜单对象\n6. 路径框输入 ~ 不再卡住界面（查询远端 home 改到后台线程）"
+  "notes": "1. 点过插件面板的「停止」之后，循环发送 / 扫描 / 写零 / 批量执行不再永久失灵（以前停止标志一直留着，这些按钮点了没反应也不报错）\n2. 面板按钮和命令表现在共用同一个「进行中」名额：连点两次不会再有两个任务在同一条串口 / Modbus / SSH 连接上交错收发，抢不到时日志会说明原因\n3. 插件被卸载或重载后，仍在跑的旧任务照样能点「停止」中断\n4. 在线更新下载中途出错时，「立即更新」按钮不再冻在「下载中…」并置灰，任何出口都会把按钮还回来\n5. 插件 ENABLED_BY_DEFAULT 开始真正生效（写在类里也算，改完点「重载」立即生效）；同名插件被高优先级目录盖住会提示；开关状态改为原子写入，崩溃不会把禁用列表清空\n6. 带 BOM 的插件文件也能识别；超过 1MB 的插件不再在启动 / 重载时卡住界面；启动时记录扫描了哪些目录、每个插件实际加载的是哪个文件"
 }

@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.23 ｜ 更新于 2026-10-31 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.24 ｜ 更新于 2026-10-31 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -150,6 +150,21 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <div class="release">
   <div class="rel-head">
+    <span class="rel-ver">v1.3.24</span>
+    <span class="rel-date">2026-10-31</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>点过一次「停止」之后，面板上的循环发送 / 扫描 / 写零 / 批量执行就永久失灵</strong>：停止标志一直留着，这些按钮点下去没有任何反应、也不报错，只有恰好从下面的命令表跑一次才会恢复。现在每次起任务都会清掉旧标志。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>连点两次同一个按钮会起两个任务</strong>：两条线程在同一条串口 / Modbus / SSH 连接上交错收发，结果互相覆盖。现在面板按钮和命令表共用同一个「进行中」名额，抢不到时日志会说明原因；插件被卸载或重载后，还在跑的旧任务照样能点「停止」中断。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>在线更新下到一半出错，「立即更新」按钮会冻在「下载中…」并置灰</strong>，只能重开程序。现在任何出口都会把按钮还回来。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">插件 <code>ENABLED_BY_DEFAULT</code> 开始真正生效（写在类里同样算数，改完点「重载」立即生效）；同名插件被高优先级目录盖住时会提示，排查「改了代码没生效」不用再猜；启动时记录扫描了哪些目录、每个插件实际加载的是哪个文件。</div></div>
+    <div class="row"><div class="tag">优化</div><div class="txt">插件开关状态改为原子写入，崩溃不会把禁用列表清空；状态文件损坏时会提示一声，而不是静默把禁用的插件全加载回来；记事本存成带 BOM 的插件文件也认得；超过 1MB 的插件不再在启动 / 重载时卡住界面。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
     <span class="rel-ver">v1.3.23</span>
     <span class="rel-date">2026-10-31</span>
 
@@ -175,6 +190,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
+<details class="older-releases">
+  <summary>查看更早的版本（v1.3.21 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.21</span>
@@ -188,9 +205,6 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <div class="row"><div class="tag">优化</div><div class="txt">内部若干处裸异常改为明确的异常类型（不再连 Ctrl+C 和系统退出一起吞掉）。</div></div>
   </div>
 </div>
-
-<details class="older-releases">
-  <summary>查看更早的版本（v1.3.20 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.20</span>
