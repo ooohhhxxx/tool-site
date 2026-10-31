@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.22 ｜ 更新于 2026-10-31 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.23 ｜ 更新于 2026-10-31 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -150,6 +150,20 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <div class="release">
   <div class="rel-head">
+    <span class="rel-ver">v1.3.23</span>
+    <span class="rel-date">2026-10-31</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>连上之后再按一次回车会重复连接</strong>：旧连接被直接覆盖且从不关闭，网络会话一直挂到程序退出；第二次如果失败，还会出现「界面提示连接失败、其实终端还能用」的状态错乱。现在已连接或正在连接时按回车会被拦住，并提示先断开。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>Modbus 和串口的自动重连会互相打架</strong>：两路共用一份倒计时和重试次数，拔扩展坞导致同时断线时，后断的那一路再也等不到重连；反过来，随手关一下串口也会把 Modbus 正在等的重连取消掉，状态栏却还显示「几秒后重连」。现在两路各算各的。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>配置文件损坏时会静默清空并覆盖</strong>：断电写坏、手工改错之后，启动时一切看起来正常，只是点位和参数都变回默认值，退出时还会把空配置写回去，数据不可恢复。现在会先把坏文件备份成 <code>.bak-时间戳</code>，再按默认值启动，并弹窗说明备份在哪。</div></div>
+    <div class="row"><div class="tag">优化</div><div class="txt">监控表右键菜单改为复用（以前每次右键都会留下一个菜单对象，一次调试会话点几百次就攒几百个）；路径框输入 <code>~</code> 查询远端 home 改到后台线程，走 VPN 时界面不再硬冻一个完整往返。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
     <span class="rel-ver">v1.3.22</span>
     <span class="rel-date">2026-10-31</span>
 
@@ -175,6 +189,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
+<details class="older-releases">
+  <summary>查看更早的版本（v1.3.20 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.20</span>
@@ -187,9 +203,6 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <div class="row"><div class="tag">优化</div><div class="txt">窗口大小位置、SSH 连接记录同样改为原子写入；保存失败会明确提示，不再静默失败。</div></div>
   </div>
 </div>
-
-<details class="older-releases">
-  <summary>查看更早的版本（v1.3.19 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.19</span>
