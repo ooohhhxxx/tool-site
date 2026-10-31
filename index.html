@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.21 ｜ 更新于 2026-10-31 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.22 ｜ 更新于 2026-10-31 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -150,6 +150,19 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <div class="release">
   <div class="rel-head">
+    <span class="rel-ver">v1.3.22</span>
+    <span class="rel-date">2026-10-31</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag new">新增</div><div class="txt">日志<strong>保留天数可自选</strong>：7 / 10 / 30 / 60 天，默认 30 天。位置在「设置 → 日志 → 保留」。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt">超过天数的旧日志<strong>自动删除</strong>：启动时、每天首次记录时、改完保留天数时各清理一次，不用再手动删。</div></div>
+    <div class="row"><div class="tag">安全</div><div class="txt">只清理形如「年-月-日.log」的日期文件。日志目录里你自己放的其他文件、以及日期不合法的文件，一概不碰；文件正被占用时跳过不删，不会报错。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
     <span class="rel-ver">v1.3.21</span>
     <span class="rel-date">2026-10-31</span>
 
@@ -175,6 +188,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
+<details class="older-releases">
+  <summary>查看更早的版本（v1.3.19 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.19</span>
@@ -190,8 +205,6 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
-<details class="older-releases">
-  <summary>查看更早的版本（v1.3.18 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.18</span>

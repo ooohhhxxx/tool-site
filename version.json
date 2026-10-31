@@ -1,13 +1,13 @@
 {
-  "version": "1.3.21",
+  "version": "1.3.22",
   "date": "2026-10-31",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.21/UltimateTool.exe",
-  "size": 16798858,
-  "sha256": "f832d6186d46e553e7baf5e26ac7cac50ec4346c99f81ee069910f0952950e09",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.22/UltimateTool.exe",
+  "size": 16802831,
+  "sha256": "11b16907049aa2ee5fcb37679e624fc331655a28ec0c5fd4b4cf878ab3109241",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.21/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.22/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 日志写不进去时会提示并自动停止记录——以前是静默失败，会让人以为日志一直在记，等要排障才发现文件是空的\n2. 参数没保存全时会说明是哪一部分没存进去\n3. 插件出错会在日志区留一条记录，不再是完全无声\n4. SSH 连接记录文件损坏时会说明原因，不会让人以为记录凭空消失\n5. 内部若干处裸异常改为明确的异常类型"
+  "notes": "1. 日志可设置保留天数：7 / 10 / 30 / 60 天自选，默认 30 天（设置页 → 日志 → 保留）\n2. 超过天数的旧日志自动删除：启动时、跨天写日志时、改设置时各清一次\n3. 只清理形如「年-月-日.log」的日期文件，日志目录里你自己放的其他文件一概不碰\n4. 文件正被其他程序占用时跳过不删，不会报错"
 }
