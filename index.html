@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.25 ｜ 更新于 2026-11-01 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.27 ｜ 更新于 2026-11-01 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -150,6 +150,21 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <div class="release">
   <div class="rel-head">
+    <span class="rel-ver">v1.3.27</span>
+    <span class="rel-date">2026-11-01</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>终端里一条颜色 / 光标控制序列正好被网络分块切断时，会显示成「[38;5;」这种残渣</strong>：前一块原样显示成半截序列，后一块又漏出「8m」。现在被切断的半截序列先攒着，等下一块补齐再一起剥掉；跨块的 <code>\r\n</code> 也并成一个换行，不再多出一个空行。攒着的尾巴超过 512 字符照旧放行，不会把显示卡住。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>串口接收区的时间戳取的是「刷到屏上」那一刻</strong>：界面积压时，一小时前进来的包显示的时刻是刚刚，看着像设备秒回。现在改在包到达的那一刻取值。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>SSH 连接记录经不起手工改动</strong>：读不懂的条目（手改坏的、缺字段的）以前在下次「保存配置」时被整体写回抹掉；端口手工写成数字时匹配不上，同一条记录会被存成两条；口令首尾的空格保存时被剪掉、连接时不剪，取出来已经不是原来输入的那个口令。现在读不懂的条目原样留在文件里，端口读进来就归一化，口令两边都按原文。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>Modbus 的端口和超时不做校验</strong>：0、70000 这类端口照样发给客户端，超时填错不吭声按 3 秒去连。现在值或范围不对会说清楚；自动重连撞上坏参数时，把原因写进状态栏并停下，等你改对再点连接，不再按错的值一直试。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>上传取消或断线后，远端会留下一份长度不对的半截文件</strong>：文件列表里看着像已经传上去了。现在改成先传 <code>.part</code>、整份到位再换成正式名字（和下载同一套做法）；换名失败不再报「上传失败」，会把留在远端的 <code>.part</code> 路径说出来，你还能自己救。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
     <span class="rel-ver">v1.3.25</span>
     <span class="rel-date">2026-11-01</span>
 
@@ -178,6 +193,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
+<details class="older-releases">
+  <summary>查看更早的版本（v1.3.23 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.23</span>
@@ -192,8 +209,6 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
-<details class="older-releases">
-  <summary>查看更早的版本（v1.3.22 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.22</span>
