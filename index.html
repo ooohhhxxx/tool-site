@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.24 ｜ 更新于 2026-10-31 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.25 ｜ 更新于 2026-11-01 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -150,6 +150,21 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <div class="release">
   <div class="rel-head">
+    <span class="rel-ver">v1.3.25</span>
+    <span class="rel-date">2026-11-01</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>点「取消」或断开之后，还在路上的那次连接会把你刚关掉的会话救活</strong>：晚到的成功结果照样写回界面，出现「显示已连接、终端却没反应」，多出来的网络会话也一直不关。现在连接结果带序号，过期的一律作废并关掉 socket（SSH、Modbus 各一处）。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>两个来源同时往一个串口写时，帧会互相插队</strong>：手动发送、循环发送、插件同时下发，设备可能收到前后拼错的字节，而且不报错。现在一整帧的收发是独占的。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>用记事本改过的配置文件读不出来</strong>：带 BOM 时整份参数（含窗口位置、大小）会被当成损坏退回默认值。现在和插件文件一样容忍 BOM。连接记录文件被改坏时也不再只给一个空白下拉框——会说明是整份损坏还是几条格式不对，其余记录照常可选。</div></div>
+    <div class="row"><div class="tag">优化</div><div class="txt">后台界面队列和串口重连链在异常路径上也照样排下一次，不会因为一次异常就断掉；拖动分栏之后不再往控制台甩 <code>invalid command name</code>。</div></div>
+    <div class="row"><div class="tag">优化</div><div class="txt">在线更新：已经下好的安装包在启动安装前先校验一次，不通过就重新下载，不会去装一个坏包；检查或下载线程没能起来时，状态栏写「检查未能开始 / 下载未能开始」，不再默默停在原地。</div></div>
+  </div>
+</div>
+
+<div class="release">
+  <div class="rel-head">
     <span class="rel-ver">v1.3.24</span>
     <span class="rel-date">2026-10-31</span>
 
@@ -177,6 +192,8 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   </div>
 </div>
 
+<details class="older-releases">
+  <summary>查看更早的版本（v1.3.22 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.22</span>
@@ -189,9 +206,6 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <div class="row"><div class="tag">安全</div><div class="txt">只清理形如「年-月-日.log」的日期文件。日志目录里你自己放的其他文件、以及日期不合法的文件，一概不碰；文件正被占用时跳过不删，不会报错。</div></div>
   </div>
 </div>
-
-<details class="older-releases">
-  <summary>查看更早的版本（v1.3.21 及之前）</summary>
 <div class="release">
   <div class="rel-head">
     <span class="rel-ver">v1.3.21</span>
