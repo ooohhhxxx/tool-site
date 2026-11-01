@@ -1,13 +1,13 @@
 {
-  "version": "1.3.25",
+  "version": "1.3.27",
   "date": "2026-11-01",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.25/UltimateTool.exe",
-  "size": 16819418,
-  "sha256": "0ab153e9d5ae0bec72afee8166caf83ac500a1f56064ac32ec6b7134d7990b14",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.27/UltimateTool.exe",
+  "size": 16829271,
+  "sha256": "630d76b05ff9f47741e44c7c26983e62f513b7c8a13e598afba7a7f54f6ad3c1",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.25/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.27/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "1. 点「取消」或断开之后，还在路上的那次连接不会再把你刚关掉的会话救活（以前会出现「显示已连接、终端却没反应」，多余的网络会话一直不关）；SSH 和 Modbus 都改了\n2. 两个来源同时往一个串口写时，帧不再互相插队：手动发送 / 循环发送 / 插件同时下发，设备不会再收到前后拼错的字节\n3. 用记事本改过的配置文件、窗口位置大小文件（带 BOM）能正常读取，不再整份读不出来就退回默认值\n4. SSH 连接记录被改坏时不再只给一个空白下拉框：会说明是整份损坏还是几条格式不对，其余记录照常可选\n5. 后台界面队列和串口重连链在异常路径上也照样排下一次，不会因为一次异常就断掉；拖动分栏后不再往控制台甩 invalid command name\n6. 在线更新：已下载的安装包在启动安装前先校验一次，不通过就重新下载，不会去装坏包；检查 / 下载线程没能起来时状态栏写「检查未能开始 / 下载未能开始」，不再默默停在原地"
+  "notes": "1. 终端里一条颜色/光标控制序列正好被网络分块切断时，不再显示成「[38;5;」这种残渣（半截序列会等下一块补齐再剥），跨块的换行也不再多空一行\n2. 串口接收区的时间戳改成包到达的那一刻；界面积压时以前显示的是「刷到屏上」的时刻，看着像设备秒回\n3. SSH 连接记录更耐手改：格式不对的条目保存时不再被抹掉；端口写成数字不会再「存一次变两条」；口令首尾的空格保留（以前保存时会被剪掉，取出来已经不是原来那个口令）\n4. Modbus 端口和超时会校验：0、70000 这类端口不再直接发出去，超时填错不再不吭声按 3 秒去连；自动重连撞上坏参数会把原因写在状态栏并停下\n5. 上传先落 .part、整份传完再换成正式名字：取消或断线不再在远端留下一份长度不对的半截文件；换名失败会告诉你 .part 在远端哪里，不会把有数据的说成上传失败"
 }
