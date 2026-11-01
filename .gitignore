@@ -1,1 +1,6 @@
 .workbuddy/
+
+# 编译产物 / 临时文件：发布脚本跑 git add -A，挡住免得误提交
+__pycache__/
+*.pyc
+*.pyo
