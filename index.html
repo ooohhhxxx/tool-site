@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.27 ｜ 更新于 2026-11-01 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.28 ｜ 更新于 2026-11-02 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -146,6 +146,23 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <p>软件每次启动会静默检查新版本，发现更新时弹窗提示，点一下即可下载安装；安装包自带覆盖升级，连接记录与插件配置全部保留。</p>
   </div>
   <a class="uh-btn" href="./SOP.html">更新说明</a>
+</div>
+
+<div class="release">
+  <div class="rel-head">
+    <span class="rel-ver">v1.3.28</span>
+    <span class="rel-date">2026-11-02</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>某些时候双击图标没反应，或者反过来开出了两个程序</strong>：用远程桌面、或在 Windows 上切换过用户之后，程序会以为「已经有一个在运行」然后悄悄退出，屏幕上什么都不说；换一个 Windows 用户时更糟——它认不出另一个用户已经开着，于是两个程序同时跑，抢着写同一份配置。现在这两种情况都会明确告诉你原因。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>多选上传遇到同名文件，会把前一份悄悄盖掉</strong>：不同目录下的两个 <code>config.ini</code> 会先后传到远端同一个路径，最后界面报「上传完成 2 个」，实际只剩一份内容。现在选好文件就会先问你；如果覆盖的是远端本来就有的文件，结果里也会注明覆盖了几个。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>系统加密不可用时，保存的密码其实是明文</strong>：那种情况下只能退回可逆编码（base64），一行就能还原，但以前存的时候不吭声、读的时候也不吭声。现在保存时终端里会说明，下次加载那条记录时状态栏还会再提示一次。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>插件打日志太猛时，界面会越用越卡</strong>：插件回调排进界面的队列以前没有上限，插件在循环里逐行打日志时，攒的比刷的快，内存和延迟只涨不降。现在队列有上限，丢掉的次数会在插件日志里说一声。</div></div>
+    <div class="row"><div class="tag new">改进</div><div class="txt"><strong>更新提示框以前把整篇更新日志都塞进来</strong>：这次日志已经八百多字，1366×768 的机器上对话框会顶出屏幕，把「是 / 否」按钮推到看不见的地方。现在只显示几行摘要，完整日志到「关于」里看。</div></div>
+    <div class="row"><div class="tag new">改进</div><div class="txt"><strong>Modbus 从站拒绝了请求，日志里只有一串英文</strong>：以前显示 <code>Exception Response(144, 3, IllegalAddress)</code>，看着像「读不到」，其实是地址不存在。现在直接翻成「地址不存在（设备上没有这个寄存器 / 线圈）」「数值超出范围」这类话，超时和从站无响应也分开说。</div></div>
+    <div class="row"><div class="tag new">改进</div><div class="txt"><strong>另外几处收口</strong>：界面上改的设置如果没能写进配置文件（磁盘满、没权限），日志里会留一条，不再让你以为记住了；SSH 连接记录最多保留最近 50 条（以前只增不减），超出时会说明；「关于」窗口里的更新日志遇到控制字符不再显示成乱码。</div></div>
+  </div>
 </div>
 
 <div class="release">
