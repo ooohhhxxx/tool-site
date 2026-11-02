@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.3.28 ｜ 更新于 2026-11-02 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.3.29 ｜ 更新于 2026-11-02 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -146,6 +146,23 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <p>软件每次启动会静默检查新版本，发现更新时弹窗提示，点一下即可下载安装；安装包自带覆盖升级，连接记录与插件配置全部保留。</p>
   </div>
   <a class="uh-btn" href="./SOP.html">更新说明</a>
+</div>
+
+<div class="release">
+  <div class="rel-head">
+    <span class="rel-ver">v1.3.29</span>
+    <span class="rel-date">2026-11-02</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>高缩放或窗口拖窄时，连接区被挤没了</strong>：SSH 连接区原来把 14 个控件塞在一行里。200% 缩放的机器上，用户名和密码框被压成 0 宽——根本没画出来，肉眼以为「输入框就是这么窄」；窗口拖到 980 宽时，「断开」「取消」两个按钮整个消失。现在拆成「参数」和「动作」两行，最小窗口提到 1024×640，恢复上次窗口时也不会再跑到屏幕外面。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>Modbus 和串口的按钮同样会被裁</strong>：快速读写区的「执行」、监控区的「添加监控」、串口配置的「打开串口 / 关闭串口」，在窄窗口下都掉到可视区外面。现在这几行改成按比例伸缩，按钮固定在最右，窗口再窄也点得到。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>Ctrl+F 查找每敲一个字符就卡一下</strong>：2 万行的终端里搜一个常见字母，以前每按一次键都要重扫全文、再给所有命中打高亮，实测 667ms；输 5 个字符就是 3 秒白屏。现在最多标 500 处并提示「命中过多，请补充关键字」，同样的搜索 4ms。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>正往上翻着看报错，来一条新日志就被拽回底部</strong>：终端和串口早就不这样了，但 Modbus 报文日志和插件日志还是每条都强制滚到底。现在四块日志行为一致——你自己翻着看，它就不动你。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>输入寄存器点位也能点「写入修改」，写进去的其实是另一个数据区</strong>：FC04（输入寄存器）和 FC02（离散输入）在 Modbus 里都是只读区。以前选中它们点写入，FC04 会按「写保持寄存器」发出去——读的是输入寄存器、写的是同地址的保持寄存器，界面报成功而设备状态一点没变。现在当场拦下并说明原因。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>往交换机上传文件，每次都「传完却换不了名」</strong>：交换机、工控机上的 SFTP 多半不认 OpenSSH 的 posix-rename 扩展，上传会卡在最后改名这一步，远端堆一地 <code>.part</code>。现在退回到标准 rename；只有远端确实存在同名文件（本来就要覆盖）时才先删后改名。</div></div>
+    <div class="row"><div class="tag new">改进</div><div class="txt"><strong>另外几处收口</strong>：串口端口以前按「COM3 - USB-SERIAL CH340」整条描述记，换驱动或换机器就静默连到别的口，现在只记 COM3；用户名里带 <code>@</code> 的连接记录点「加载」没反应，已修；没装 pymodbus 时不再报 <code>name 'ModbusTcpClient' is not defined</code>，直接说缺哪个库；程序初始化出错会弹窗给出原因和配置文件路径，不再是双击闪一下；设置页内容超出窗口时可以滚动，不再把最下面的「日志保留」裁掉。</div></div>
+  </div>
 </div>
 
 <div class="release">
