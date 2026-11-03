@@ -1,13 +1,13 @@
 {
-  "version": "1.3.30",
-  "date": "2026-11-02",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.30/UltimateTool.exe",
-  "size": 16845891,
-  "sha256": "7d59bcedd3201385ffc72cc219d1379f8c9dca211e0693b5640555d9bd376b4c",
+  "version": "1.4.0",
+  "date": "2026-11-03",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.4.0/UltimateTool.exe",
+  "size": 16870993,
+  "sha256": "9ad31262f95731c0df658697aac906f34129f1ff18782fc66a3f5353c548aa4f",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.3.30/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.4.0/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "界面布局按反馈重排了两块：① SSH 连接区各行对齐——历史记录下拉框拉伸填满整行、右侧「加载/保存配置/删除记录」等宽贴右；操作行「密钥/编码」居左、「连接/断开/取消」等宽靠右，右边缘与上一行对齐（原布局各行右侧最多空出近 700 像素、四行左起点参差）；② 远程文件管理移到终端右侧展示，终端在左占主区，中间分隔条可拖动调宽，文件列表列宽按新位置重配；③ 去掉一个隐藏的固定占位标签，「就绪」与进度条之间不再空出一大块。功能与协议行为无任何变化。"
+  "notes": "SSH 页从「一套连接 + 一屏表单」改成「连接记录 + 终端标签页」。① 首屏只留「＋新建主机」和连接记录，点一条记录（或填完新建主机）就在右侧开一个终端标签页；多个标签各连各的设备，切标签不重连、不丢输出。② 每个标签顶部有会话工具条：连接状态、进度、取消、断开、重连、编码。连接中途可以取消；连上后可以主动断开但保留标签、随时重连；中文乱码时切编码只影响当前标签。③ 远程文件管理移到终端右侧（终端约占 62%），分隔条可拖动；刷新/上传/下载/上级目录和传输进度条回到文件面板顶部。④ 终端输出、文件列表、编码、连接护栏全部按会话隔离——一台掉线只让它的标签变灰，其余照常；后台标签连接失败也不再弹模态框打断当前操作。⑤ 连接记录没存密码时点它会弹出预填好的连接窗，补一次密码即可。另修：断开后侧边栏仍显示绿色连接点、启动时看不到已有记录、左下角「删除」点了没反应、标签无法关闭（现可用工具条「关闭」、点标签右端或中键）。"
 }
