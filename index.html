@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.4.0 ｜ 更新于 2026-11-03 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.5.0 ｜ 更新于 2026-11-03 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -146,6 +146,19 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <p>软件每次启动会静默检查新版本，发现更新时弹窗提示，点一下即可下载安装；安装包自带覆盖升级，连接记录与插件配置全部保留。</p>
   </div>
   <a class="uh-btn" href="./SOP.html">更新说明</a>
+</div>
+
+<div class="release">
+  <div class="rel-head">
+    <span class="rel-ver">v1.5.0</span>
+    <span class="rel-date">2026-11-03</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag new">新增</div><div class="txt"><strong>关闭窗口可以选择「最小化到托盘」</strong>：设置页 →「显示与窗口」新增「关闭窗口时」，默认仍然是直接退出（和以前完全一样）。选「最小化到托盘」后，点右上角 × 只把窗口收进系统托盘——SSH 会话、Modbus 轮询、串口、文件传输、插件全部继续在后台跑，适合挂着长任务或盯监控时误点了关闭。</div></div>
+    <div class="row"><div class="tag new">新增</div><div class="txt"><strong>托盘图标</strong>：双击恢复窗口，右键菜单有「显示主窗口 / 退出」。要彻底退出请用托盘菜单的「退出」——它和直接关闭走同一套收尾（断开三路连接、停轮询、关日志、记住窗口位置），不会漏。第一次缩到托盘会用气泡提示去哪找图标（Windows 11 默认把新图标收进任务栏的「隐藏的图标」）。</div></div>
+    <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>托盘不可用时不留下「找不到的进程」</strong>：缺组件或系统不支持时，会自动把窗口恢复出来并退回「直接退出」；退出时也会先收掉托盘图标，避免通知区残留。</div></div>
+  </div>
 </div>
 
 <div class="release">
