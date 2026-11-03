@@ -135,16 +135,6 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 </table>
 <div class="tip">💡 全局开关在标签栏最右侧的<strong>「设置」</strong>标签页里（和其他标签页一样直接切换），共四个区：<strong>显示与窗口</strong>（窗口置顶、关键字高亮）、<strong>软件更新</strong>（检查更新、关于、官网链接）、<strong>连接</strong>（断线自动重连）、<strong>日志</strong>（记录到文件、打开日志目录）。高亮的开关会记住，置顶不保存——下次启动默认不置顶；置顶生效时窗口标题会显示「[置顶]」。</div>
 
-<h3>5.6 断线自动重连</h3>
-<p>Modbus 或串口<strong>意外断开</strong>时（网络抖动、转换器掉线、设备重启），软件会自己尝试重连，不用守在旁边手动点：</p>
-<ul>
-<li><strong>间隔递增</strong>：第 1 次等 2 秒，之后 4 → 8 → 16 → 30 秒，越往后越慢，不会疯狂刷；</li>
-<li><strong>最多 5 次</strong>：5 次都没成功就停手，状态栏提示"请手动连接"，不会一直耗着；</li>
-<li><strong>不动设备</strong>：重连只是重新建立连接，不会写任何寄存器；</li>
-<li><strong>手动断开不算</strong>：你自己点「断开」的，软件不会自作主张连回去；</li>
-<li><strong>可随时关掉</strong>：设置页 →「连接」区取消勾选即可；关闭软件也会立即取消排队中的重连。</li>
-</ul>
-<div class="warn">⚠️ 自动重连<strong>不覆盖 SSH</strong>——SSH 重连会丢掉原来的终端会话（正在跑的命令、当前目录都会没），风险大于收益，需要时请手动重连。轮询时<strong>单次读超时不会触发重连</strong>，只有底层连接真的断了才会，避免网络抖一下就来回重连。</div>
 <div class="warn">⚠️ 在终端执行 <code>rm</code>、<code>reboot</code> 等破坏性命令前，务必反复确认目标路径与服务器，防止误操作生产环境。</div>
 <div class="tip">💡 排障取证时用「保存日志」把整段终端输出存成 txt，比截图更便于检索和转发给同事。</div>
 
@@ -196,6 +186,17 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <li>备注只影响显示和导出，<strong>不会向设备写入任何数据</strong>，随点位一起保存。</li>
 </ol>
 <div class="warn">⚠️ 改备注要用<strong>右键菜单</strong>。监控表里<strong>双击某一行是「写入寄存器」</strong>，属于会改变设备状态的危险操作，两者不能混用。</div>
+
+<h3>6.6 断线自动重连</h3>
+<p>Modbus 或串口<strong>意外断开</strong>时（网络抖动、转换器掉线、设备重启），软件会自己尝试重连，不用守在旁边手动点：</p>
+<ul>
+<li><strong>间隔递增</strong>：第 1 次等 2 秒，之后 4 → 8 → 16 → 30 秒，越往后越慢，不会疯狂刷；</li>
+<li><strong>最多 5 次</strong>：5 次都没成功就停手，状态栏提示"请手动连接"，不会一直耗着；</li>
+<li><strong>不动设备</strong>：重连只是重新建立连接，不会写任何寄存器；</li>
+<li><strong>手动断开不算</strong>：你自己点「断开」的，软件不会自作主张连回去；</li>
+<li><strong>可随时关掉</strong>：设置页 →「连接」区取消勾选即可；关闭软件也会立即取消排队中的重连。</li>
+</ul>
+<div class="warn">⚠️ 自动重连<strong>不覆盖 SSH</strong>——SSH 重连会丢掉原来的终端会话（正在跑的命令、当前目录都会没），风险大于收益，需要时请点标签顶部工具条的<strong>「重连」</strong>按钮。轮询时<strong>单次读超时不会触发重连</strong>，只有底层连接真的断了才会，避免网络抖一下就来回重连。</div>
 
 <h2>七、串口调试操作流程</h2>
 <h3>7.1 打开串口</h3>
