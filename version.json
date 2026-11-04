@@ -1,13 +1,13 @@
 {
-  "version": "1.6.1",
+  "version": "1.6.2",
   "date": "2026-11-04",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.1/UltimateTool.exe",
-  "size": 21175405,
-  "sha256": "e7b1808171b3f0f84783b42674d9960ef05e9b8f1aad2acd2fd0557f606fe3b2",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.2/UltimateTool.exe",
+  "size": 21179087,
+  "sha256": "47da0a538081104c43592e92b706726960bc41427460d980cbec8522403266cf",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.1/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.2/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "串口配置合并成一行：原来参数分两行放，中间和框内留白偏多，配置框高 155px；现在一行放下端口、刷新、波特率、数据位、停止位、校验和两个按钮，框高 81px，下面的发送区和接收区能多占一行的高度。窗口拉窄到 1100px 以下时会自动恢复成两行——一行在 1024 宽下会把「关闭串口」挤出界面，这个下限必须守住。顺带把端口下拉里多余的括号去掉了：原来是「COM4 - USB 串行设备 (COM4)」，括号里的设备名和前面重复，占掉近一半宽度，现在显示「COM4 - USB 串行设备」，一行布局下也能看全。"
+  "notes": "修一个会让在线更新装不上的问题：如果你把「关闭窗口时」设成了「最小化到托盘」，点「立即更新」之后程序只是缩到托盘、进程没有真正退出，安装程序覆盖不了正在运行的 exe，更新就卡在「装不上」且没有任何提示。现在更新会强制完全退出（保存配置、断开连接、关日志这些收尾照旧），装完重新打开即可。设置里的「关闭窗口时」只影响你手动点右上角 × 的行为，不影响更新。"
 }
