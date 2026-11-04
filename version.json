@@ -1,13 +1,13 @@
 {
-  "version": "1.6.3",
+  "version": "1.6.4",
   "date": "2026-11-04",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.3/UltimateTool.exe",
-  "size": 21175071,
-  "sha256": "1abdb73b7344bb0a3d26da3846234367f5829155b2f0ddf699ec3eb89ec2e34d",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.4/UltimateTool.exe",
+  "size": 21174319,
+  "sha256": "be9c48add1a9d7830c33f873688b1fbac4e0ecaae3441596869b3217be94fae1",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.3/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.4/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "几处界面布局收拾，功能行为不变。① Modbus 的「快速读写」框原来跟下面的监控表平分高度，一行控件白占 126px，现在收到 86px，监控表多出 40px。② SSH 文件面板的「就绪 / 取消」横条改成只在真正上传下载时出现，平时不占位置，文件列表能多显示一行。③ 串口「发送内容」改成多行输入框：长指令、多条指令能直接看清全文，不会再在下面空出一大片白板；回车发送、Shift+回车换行，↑↓ 仍然翻历史。④ 删除、清空、移除这类按钮改成红字，降低误点。⑤ 状态栏不再重复显示「已连接 主机」（标签顶部的工具条已经有这个信息），改成显示当前目录和文件数量。"
+  "notes": "两处界面修正。① SSH 远程文件列表的「修改时间」和「大小」以前一直显示不全（`11-04 1`、`1.2 M`）：面板只有 335px 宽，而「类型」列占了 45px 却只重复「目录/文件」两个字。现在去掉类型列，目录本来就用蓝色区分，省出的宽度给时间列，两个字段都能完整显示。②「新建主机」和「写寄存器确认」两个弹窗的按钮顺序反了（主按钮在左、取消在右），改成 Windows 习惯的「取消在左、主按钮在右」。"
 }
