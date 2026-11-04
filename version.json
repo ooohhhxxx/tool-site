@@ -1,13 +1,13 @@
 {
-  "version": "1.5.1",
+  "version": "1.6.0",
   "date": "2026-11-04",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.5.1/UltimateTool.exe",
-  "size": 21164623,
-  "sha256": "85991437e6b62e993e48044e6f793d402ba81afb6043b01ebc3b3f938f94ae8f",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.0/UltimateTool.exe",
+  "size": 21172935,
+  "sha256": "f63cad710cdd44414e5f344702ff53972231e30147a4946067aba9890055703c",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.5.1/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.0/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "修三处与「最小化到托盘」相关的问题。① 最要紧的一处：托盘图标万一没创建成功（系统通知区异常时），程序会误以为已经缩到托盘，照样把窗口藏起来——结果窗口和图标都找不到，只能去任务管理器结束进程。现在会先确认托盘真的在，起不来就把窗口恢复出来、按「直接退出」处理。② 缩到托盘的瞬间如果你马上又把窗口点回来，那条「已最小化到托盘」的气泡提示还会弹出来打扰，现在会先确认窗口确实还藏着。③ 托盘菜单的「退出」和窗口关闭几乎同时触发时，收尾流程可能跑两遍（重复断开连接、重复销毁窗口），现在只跑一次。"
+  "notes": "界面精修，功能与协议行为完全没变。① 统一控件节奏：输入框、按钮、表格行高都按同一套尺寸对齐，同一行不再高低不齐；分组标题加大加粗，说明文字改用更小的字号和更浅的颜色，标题／正文／说明一眼能分清。② 标签页选中项改成白底蓝字、未选中压暗，边界清楚了；没有会话时整条标签栏不再显示（原来那个多余的「欢迎」页签去掉了）。③ 状态栏分成「连接状态 │ 快捷键 │ 版本」三段，顶上一条细线。④ 连接记录改成两行式：主机名加粗，下面一行小字显示用户名和端口；在线用绿点、鼠标悬停高亮，支持滚轮和上下键。⑤ 按钮加了线条图标（新建、刷新、上传、下载、上级），空态换成自绘插画——图标是运行时画的，不占安装包体积。⑥ 搜索框加了「搜索主机或用户名」提示；插件表格补上斑马纹（另外两张表早就有）。"
 }
