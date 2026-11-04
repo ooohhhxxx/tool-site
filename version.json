@@ -1,13 +1,13 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "date": "2026-11-04",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.0/UltimateTool.exe",
-  "size": 21172935,
-  "sha256": "f63cad710cdd44414e5f344702ff53972231e30147a4946067aba9890055703c",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.1/UltimateTool.exe",
+  "size": 21175405,
+  "sha256": "e7b1808171b3f0f84783b42674d9960ef05e9b8f1aad2acd2fd0557f606fe3b2",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.0/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.1/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "界面精修，功能与协议行为完全没变。① 统一控件节奏：输入框、按钮、表格行高都按同一套尺寸对齐，同一行不再高低不齐；分组标题加大加粗，说明文字改用更小的字号和更浅的颜色，标题／正文／说明一眼能分清。② 标签页选中项改成白底蓝字、未选中压暗，边界清楚了；没有会话时整条标签栏不再显示（原来那个多余的「欢迎」页签去掉了）。③ 状态栏分成「连接状态 │ 快捷键 │ 版本」三段，顶上一条细线。④ 连接记录改成两行式：主机名加粗，下面一行小字显示用户名和端口；在线用绿点、鼠标悬停高亮，支持滚轮和上下键。⑤ 按钮加了线条图标（新建、刷新、上传、下载、上级），空态换成自绘插画——图标是运行时画的，不占安装包体积。⑥ 搜索框加了「搜索主机或用户名」提示；插件表格补上斑马纹（另外两张表早就有）。"
+  "notes": "串口配置合并成一行：原来参数分两行放，中间和框内留白偏多，配置框高 155px；现在一行放下端口、刷新、波特率、数据位、停止位、校验和两个按钮，框高 81px，下面的发送区和接收区能多占一行的高度。窗口拉窄到 1100px 以下时会自动恢复成两行——一行在 1024 宽下会把「关闭串口」挤出界面，这个下限必须守住。顺带把端口下拉里多余的括号去掉了：原来是「COM4 - USB 串行设备 (COM4)」，括号里的设备名和前面重复，占掉近一半宽度，现在显示「COM4 - USB 串行设备」，一行布局下也能看全。"
 }
