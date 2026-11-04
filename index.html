@@ -84,7 +84,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
   <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
   <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.6.2 ｜ 更新于 2026-11-04 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="meta">版本 v1.6.3 ｜ 更新于 2026-11-04 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
   <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
@@ -146,6 +146,20 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <p>软件每次启动会静默检查新版本，发现更新时弹窗提示，点一下即可下载安装；安装包自带覆盖升级，连接记录与插件配置全部保留。</p>
   </div>
   <a class="uh-btn" href="./SOP.html">更新说明</a>
+</div>
+
+<div class="release">
+  <div class="rel-head">
+    <span class="rel-ver">v1.6.3</span>
+    <span class="rel-date">2026-11-04</span>
+
+  </div>
+  <div class="updates">
+    <div class="row"><div class="tag new">改进</div><div class="txt"><strong>串口「发送内容」改成多行输入框</strong>：长指令、多条指令能直接看清全文（以前单行，下面空着一大片）。回车发送、<strong>Shift+回车</strong>换行，↑↓ 仍然翻历史。「统计」贴到面板底部，中间不再空一块。</div></div>
+    <div class="row"><div class="tag new">改进</div><div class="txt"><strong>Modbus「快速读写」框不再白撑</strong>：它原来跟下面的监控表平分高度，一行控件占掉 126px，现在收到 86px，监控表多出 40px 可见行。</div></div>
+    <div class="row"><div class="tag new">改进</div><div class="txt"><strong>文件面板的「就绪 / 取消」横条只在传输时出现</strong>，平时不占位置，文件列表能多显示一行。状态栏也不再重复写「已连接 主机」（标签顶部的工具条已有），改成显示当前目录和文件数量。</div></div>
+    <div class="row"><div class="tag fix">改进</div><div class="txt"><strong>删除、清空、移除这类按钮改成红字</strong>，和普通按钮区分开，降低误点。</div></div>
+  </div>
 </div>
 
 <div class="release">
