@@ -1,13 +1,13 @@
 {
-  "version": "1.5.0",
-  "date": "2026-11-03",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.5.0/UltimateTool.exe",
-  "size": 21160067,
-  "sha256": "4133bea857e6fa08dc9e5ba04c607656519dc4c7fc1d3b1d231df46ece812343",
+  "version": "1.5.1",
+  "date": "2026-11-04",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.5.1/UltimateTool.exe",
+  "size": 21164623,
+  "sha256": "85991437e6b62e993e48044e6f793d402ba81afb6043b01ebc3b3f938f94ae8f",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.5.0/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.5.1/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "关闭窗口时可以选择「直接退出」还是「最小化到托盘」。① 设置页 →「显示与窗口」新增「关闭窗口时」下拉，默认仍是直接退出，和以前完全一样。② 选「最小化到托盘」后，点右上角 × 只把窗口收进系统托盘，SSH 会话、Modbus 轮询、串口、文件传输、插件全部继续在后台跑——适合挂着长任务或盯监控时误点关闭。③ 托盘图标双击恢复窗口，右键菜单有「显示主窗口 / 退出」；要彻底退出请用托盘菜单的「退出」，它和直接关闭走同一套收尾（断开三路连接、停轮询、关日志、记住窗口位置），不会漏收尾。④ 托盘不可用（系统不支持或缺组件）时会自动把窗口恢复出来并退回「直接退出」，不会留下一个找不到的进程；退出时也会先收掉托盘图标，避免通知区残留。⑤ 第一次缩到托盘会提示一次去哪找图标——Windows 11 默认把新图标放进任务栏的「隐藏的图标」里。"
+  "notes": "修三处与「最小化到托盘」相关的问题。① 最要紧的一处：托盘图标万一没创建成功（系统通知区异常时），程序会误以为已经缩到托盘，照样把窗口藏起来——结果窗口和图标都找不到，只能去任务管理器结束进程。现在会先确认托盘真的在，起不来就把窗口恢复出来、按「直接退出」处理。② 缩到托盘的瞬间如果你马上又把窗口点回来，那条「已最小化到托盘」的气泡提示还会弹出来打扰，现在会先确认窗口确实还藏着。③ 托盘菜单的「退出」和窗口关闭几乎同时触发时，收尾流程可能跑两遍（重复断开连接、重复销毁窗口），现在只跑一次。"
 }
