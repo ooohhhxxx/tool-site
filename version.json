@@ -1,13 +1,13 @@
 {
-  "version": "1.6.4",
-  "date": "2026-11-04",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.4/UltimateTool.exe",
-  "size": 21174319,
-  "sha256": "be9c48add1a9d7830c33f873688b1fbac4e0ecaae3441596869b3217be94fae1",
+  "version": "1.6.5",
+  "date": "2026-11-05",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.5/UltimateTool.exe",
+  "size": 21179057,
+  "sha256": "47e26229207b340f3eb630e412ccf7fb1fd5cddf26a1b55365554f2e3209da3a",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.4/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.5/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "两处界面修正。① SSH 远程文件列表的「修改时间」和「大小」以前一直显示不全（`11-04 1`、`1.2 M`）：面板只有 335px 宽，而「类型」列占了 45px 却只重复「目录/文件」两个字。现在去掉类型列，目录本来就用蓝色区分，省出的宽度给时间列，两个字段都能完整显示。②「新建主机」和「写寄存器确认」两个弹窗的按钮顺序反了（主按钮在左、取消在右），改成 Windows 习惯的「取消在左、主按钮在右」。"
+  "notes": "Modbus 页三处观感修正。① 蓝色主按钮（连接 / 执行）比同一行的普通按钮矮 5px，看着像被压扁——它去掉了边框，又没显式给内边距。现在补平了；这个样式是全局的，SSH 的「新建主机」、串口的「打开串口」也跟着更整齐。② 监控表没有点位时是一整片白板，现在中间会提示该填哪些、点哪个按钮，有点位就自动收起。③ 「当前值」列改成右对齐，数字按位对齐，扫一眼就能比大小。"
 }
