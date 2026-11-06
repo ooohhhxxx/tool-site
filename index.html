@@ -65,7 +65,8 @@ nav a.link:hover{color:#fff}
 .rel-badge{font-size:12px;padding:2px 10px;border-radius:999px;background:#064e3b;color:#6ee7b7}
 @media(max-width:640px){.update-hint{flex-direction:column;align-items:flex-start}.rel-head{flex-wrap:wrap}}
 footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-top:1px solid #1e293b;margin-top:60px}
-.tag-new{display:inline-block;padding:1px 7px;border-radius:10px;background:#dbeafe;color:#1d4ed8;font-size:11px;font-weight:600;margin:0 4px;vertical-align:1px}
+.tag-new{display:inline-block;padding:2px 10px;border-radius:999px;background:#064e3b;color:#6ee7b7;font-size:12px;font-weight:600}
+.section-title,#download,#features,#changelog,#usage{scroll-margin-top:84px}
 </style>
 </head>
 <body>
@@ -142,8 +143,10 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <h2 class="section-title" id="changelog">更新内容</h2>
 <p class="section-sub">装一次，之后打开软件就能收到更新提醒</p>
-<div class="rel">
+<div class="release">
   <div class="rel-head"><span class="rel-ver">v1.6.8</span><span class="rel-date">2026-11-06</span><span class="tag-new">Web UI 版首发</span></div>
+  <div class="updates">
+
   <div class="row"><div class="tag new">新增</div><div class="txt"><strong>全新 Web UI 界面</strong>：内置 xterm 真实终端（支持 vim/top）、可视化远程文件管理、上传下载进度条、多会话标签。经典版的全部能力都保留。</div></div>
   <div class="row"><div class="tag new">新增</div><div class="txt"><strong>软件内一键更新</strong>：设置 → 检查更新，发现有新版时点「立即更新」，下载约 150 KB 增量包，几秒完成，重启即生效。配置、连接记录、插件全部保留。</div></div>
   <div class="row"><div class="tag new">新增</div><div class="txt"><strong>免管理员安装</strong>：装到用户目录，不弹 UAC；桌面与开始菜单自动创建快捷方式，卸载走控制面板。</div></div>
@@ -159,6 +162,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <p>软件每次启动会静默检查新版本，发现更新时弹窗提示，点一下即可下载安装；安装包自带覆盖升级，连接记录与插件配置全部保留。</p>
   </div>
   <a class="uh-btn" href="./SOP.html">更新说明</a>
+  </div>
 </div>
 
 <div class="release">
