@@ -1,13 +1,13 @@
 {
-  "version": "1.6.5",
-  "date": "2026-11-05",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.5/UltimateTool.exe",
-  "size": 21179057,
-  "sha256": "47e26229207b340f3eb630e412ccf7fb1fd5cddf26a1b55365554f2e3209da3a",
+  "version": "1.6.6",
+  "date": "2026-11-06",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.6/UltimateTool.exe",
+  "size": 21178518,
+  "sha256": "6f4bf867e7d8ae7641c0ec57ff33776bc2121987b1ae11c1fca2d3e2d445de26",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.5/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.6/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "Modbus 页三处观感修正。① 蓝色主按钮（连接 / 执行）比同一行的普通按钮矮 5px，看着像被压扁——它去掉了边框，又没显式给内边距。现在补平了；这个样式是全局的，SSH 的「新建主机」、串口的「打开串口」也跟着更整齐。② 监控表没有点位时是一整片白板，现在中间会提示该填哪些、点哪个按钮，有点位就自动收起。③ 「当前值」列改成右对齐，数字按位对齐，扫一眼就能比大小。"
+  "notes": "修两个托盘相关的隐藏问题，都只在「关闭窗口时 = 最小化到托盘」且操作时机很巧的时候才碰得上。① 托盘菜单的「显示主窗口 / 退出」原来从托盘自己的线程直接调主窗口的定时器，主线程正好在处理确认框或别的任务时可能卡住、点了没反应；现在统一走主程序的界面回调队列。② 托盘图标刚显示就意外退出时，窗口已经藏起来、图标却没活下来，程序变成一个找不到的后台进程；现在缩到托盘后会自动复查一次，发现图标不在就把窗口恢复出来，并退回「直接退出」。"
 }
