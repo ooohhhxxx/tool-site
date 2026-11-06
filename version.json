@@ -20,13 +20,13 @@
   ],
   "notes": "两处视觉打磨，功能与布局都不变。① 悬停提示从浅黄底黑实线边框改成深蓝灰卡片（白字、细描边），和整套浅蓝灰配色统一。② 表格选中行从实心蓝底白字改成浅蓝底深字，文字更清楚、斑马纹在选中行也还看得见；文件列表、监控表、插件表和插件动作列表一起统一。",
   "webui": {
-    "version": "1.6.7",
+    "version": "1.6.8",
     "date": "2026-11-06",
-    "setup": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-Setup-1.6.7.exe",
-    "setup_size": 20068888,
-    "setup_sha256": "c9af35bf71352d1952c86ff5f902b644469f69f65b00951e8d8ce85f8c6e1662",
-    "app_zip": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-app-v1.6.7.zip",
-    "app_zip_size": 148909,
-    "notes": "Web UI 版首次发布：xterm 终端、SFTP 文件管理、Modbus/串口、插件、托盘、单实例、高 DPI。"
+    "setup": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-Setup-1.6.8.exe",
+    "setup_size": 20071697,
+    "setup_sha256": "397a8a53faf6c6d3da985196512aed59f3e0307124e85d8c7d7ee728a7f9169c",
+    "app_zip": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-app-v1.6.8.zip",
+    "app_zip_size": 149653,
+    "notes": "修复启动卡死（stdout 管道阻塞）；连接记录支持删除；会话标签可关闭（先断开再移除）。"
   }
 }
