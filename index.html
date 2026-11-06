@@ -65,8 +65,6 @@ nav a.link:hover{color:#fff}
 .rel-badge{font-size:12px;padding:2px 10px;border-radius:999px;background:#064e3b;color:#6ee7b7}
 @media(max-width:640px){.update-hint{flex-direction:column;align-items:flex-start}.rel-head{flex-wrap:wrap}}
 footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-top:1px solid #1e293b;margin-top:60px}
-.tag-new{display:inline-block;padding:2px 10px;border-radius:999px;background:#064e3b;color:#6ee7b7;font-size:12px;font-weight:600}
-.section-title,#download,#features,#changelog,#usage{scroll-margin-top:84px}
 </style>
 </head>
 <body>
@@ -83,13 +81,11 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 
 <header class="hero" id="download">
   <h1>调试工具</h1>
-  <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具<br>
-  <span class="tag-new">全新 Web UI 版</span> 内置 xterm 终端、可视化文件管理、一键自动更新</p>
-  <a class="btn" href="./UltimateToolWebUI-Setup-1.6.8.exe">⬇ 立即免费下载（Web UI 版）</a>
+  <p class="sub">SSH 远程管理 · Modbus TCP 调试 · 串口调试 —— 三合一 Windows 桌面工具</p>
+  <a class="btn" href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">⬇ 立即免费下载（国内镜像）</a>
   <a class="btn btn-doc" href="./SOP.html" download="调试工具标准操作程序SOP.html">📄 下载操作手册 (SOP)</a>
-  <p class="meta">版本 v1.6.8 ｜ 更新于 2026-11-06 ｜ 适用于 Windows 10/11 ｜ 完全免费 ｜ 免管理员安装</p>
-  <p class="mirror-tip">安装包 20 MB，装完桌面直接有图标；之后有新版会在软件里提示，点一下自动更新。</p>
-  <p class="mirror-tip">习惯旧界面？<a href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">下载经典版 v1.6.7</a>（两版可共存，配置与连接记录互通）</p>
+  <p class="meta">版本 v1.6.7 ｜ 更新于 2026-11-06 ｜ 适用于 Windows 10/11 ｜ 完全免费</p>
+  <p class="mirror-tip">国内镜像约 1.3MB/s（十几秒下完）｜<a href="./UltimateTool.exe">GitHub 源下载</a>（国内较慢，约 6 分钟）</p>
 </header>
 
 <h2 class="section-title" id="features">核心功能</h2>
@@ -99,11 +95,11 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <div class="icon">🖥️</div>
     <h3>SSH 远程管理</h3>
     <ul>
-      <li>连接记录一键保存与删除，密码为安全考虑不写入本地记录</li>
-      <li>内置 xterm 真实终端，支持 vim / top 等全屏程序，边输入边回显</li>
-      <li>远程文件可视化浏览，双击进目录，可过滤文件名</li>
-      <li>上传 / 下载带进度条，系统文件对话框直接选路径</li>
-      <li>多会话标签，随时断开或关闭当前会话</li>
+      <li>连接记录保存，账号密码加密存储，一键登录</li>
+      <li>远程文件可视化浏览，路径栏可直接输入跳转</li>
+      <li>支持多选批量上传，右键菜单下载 / 上传到当前目录</li>
+      <li>内置交互终端：直接在终端区打字，Tab 补全、↑↓ 历史</li>
+      <li>终端字号可缩放，支持一键保存终端输出</li>
     </ul>
   </div>
   <div class="card">
@@ -133,27 +129,15 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <h3>插件扩展</h3>
     <ul>
       <li>内置示例插件：批量命令、寄存器扫描、HEX 收发助手</li>
-      <li>插件动作在界面里直接运行，执行日志实时回显</li>
-      <li>支持启用 / 禁用 / 重载 / 一键启停</li>
+      <li>插件可自带操作界面，直接嵌在软件里运行</li>
+      <li>支持启用 / 禁用 / 重载，任务可随时中断</li>
       <li>把插件文件放进用户目录即可自动识别</li>
-      <li>与经典版共用插件目录，插件不用重写</li>
     </ul>
   </div>
 </div>
 
 <h2 class="section-title" id="changelog">更新内容</h2>
 <p class="section-sub">装一次，之后打开软件就能收到更新提醒</p>
-<div class="release">
-  <div class="rel-head"><span class="rel-ver">v1.6.8</span><span class="rel-date">2026-11-06</span><span class="tag-new">Web UI 版首发</span></div>
-  <div class="updates">
-
-  <div class="row"><div class="tag new">新增</div><div class="txt"><strong>全新 Web UI 界面</strong>：内置 xterm 真实终端（支持 vim/top）、可视化远程文件管理、上传下载进度条、多会话标签。经典版的全部能力都保留。</div></div>
-  <div class="row"><div class="tag new">新增</div><div class="txt"><strong>软件内一键更新</strong>：设置 → 检查更新，发现有新版时点「立即更新」，下载约 150 KB 增量包，几秒完成，重启即生效。配置、连接记录、插件全部保留。</div></div>
-  <div class="row"><div class="tag new">新增</div><div class="txt"><strong>免管理员安装</strong>：装到用户目录，不弹 UAC；桌面与开始菜单自动创建快捷方式，卸载走控制面板。</div></div>
-  <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>启动后窗口「未响应」</strong>：根因是 pythonw 从快捷方式启动时继承了标准输出管道，界面库往 stderr 刷大量异常把管道写满后阻塞主线程。现在启动即把输出接到 logs/app.log，彻底消除；同时日志可用于排查。</div></div>
-  <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>连接记录删不掉</strong>：真实记录为空时界面回落成 3 条演示数据，看着能点却删不掉。现在只有纯前端预览才用演示数据，接上后端只显示真实记录。</div></div>
-  <div class="row"><div class="tag fix">修复</div><div class="txt"><strong>当前会话关不掉</strong>：点标签上的 × 现在会先断开连接再移除；关掉最后一个时终端清空并提示重新连接。</div></div>
-</div>
 
 <div class="update-hint">
   <div class="uh-icon">🔄</div>
@@ -162,7 +146,6 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
     <p>软件每次启动会静默检查新版本，发现更新时弹窗提示，点一下即可下载安装；安装包自带覆盖升级，连接记录与插件配置全部保留。</p>
   </div>
   <a class="uh-btn" href="./SOP.html">更新说明</a>
-  </div>
 </div>
 
 <div class="release">
@@ -752,7 +735,7 @@ footer{text-align:center;padding:40px 20px;color:#475569;font-size:13px;border-t
 <div class="steps">
   <div class="step"><div class="num">1</div><div class="txt">点击页面顶部“立即免费下载”按钮，下载安装包。</div></div>
   <div class="step"><div class="num">2</div><div class="txt">双击安装包，一路“下一步”完成安装（自动创建桌面快捷方式）。</div></div>
-  <div class="step"><div class="num">3</div><div class="txt">打开软件，左侧切换 SSH / Modbus / 串口 / 插件 / 设置 五个标签页。之后有新版本，进「设置 → 检查更新」点「立即更新」即可，约 150 KB、几秒完成。</div></div>
+  <div class="step"><div class="num">3</div><div class="txt">打开软件，顶部切换 SSH / Modbus / 串口 / 插件 四个标签页即可使用。之后有新版本，软件会自动提醒，点一下就能升级。</div></div>
 </div>
 
 <div class="notice">
