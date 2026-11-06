@@ -29,7 +29,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <button class="print-btn" onclick="window.print()">🖨 打印 / 保存为PDF</button>
 
 <h1>调试工具<br>标准操作程序（SOP）</h1>
-<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.6.7 ｜ 生效日期：2026-11-06 ｜ 编制：工具开发组</p>
+<p class="meta">文件编号：SOP-UT-001 ｜ 版本：V1.6.8 ｜ 生效日期：2026-11-06 ｜ 编制：工具开发组</p>
 
 <h2>一、目的</h2>
 <p>为规范"调试工具"（以下简称"本工具"）的安装、配置与日常使用，确保操作人员能够正确、安全地完成 SSH 远程管理、Modbus TCP 通信调试与串口设备调试，降低误操作风险，提高排障效率，特制定本 SOP。</p>
@@ -47,30 +47,32 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <table>
 <tr><th>项目</th><th>要求</th><th>说明</th></tr>
 <tr><td>操作系统</td><td>Windows 10 / 11（64 位）</td><td>不支持 macOS / Linux</td></tr>
-<tr><td>运行依赖</td><td>无</td><td>安装包已内置运行环境，无需安装 Python</td></tr>
+<tr><td>运行依赖</td><td>.NET Framework 4.8</td><td>Windows 10 1903 及以上 / Windows 11 系统自带；更早的系统需先安装。安装包已内置 Python 与新界面内核，无需另行安装</td></tr>
 <tr><td>网络</td><td>目标 SSH / Modbus 设备网络可达</td><td>跨网段需先打通路由或 VPN</td></tr>
 <tr><td>串口</td><td>USB 转串口或原生串口驱动正常</td><td>端口号可在设备管理器查看</td></tr>
 <tr><td>显示</td><td>建议 1366×768 及以上</td><td>已适配高分屏缩放，字体清晰不发虚</td></tr>
-<tr><td>磁盘空间</td><td>≥ 100 MB</td><td>安装包约 21 MB（21,180,584 字节，实测 V1.6.7），安装后程序目录约 45 MB。软件内与资源管理器按 1024 计算，显示的是 20.2MB</td></tr>
+<tr><td>磁盘空间</td><td>≥ 300 MB</td><td>安装包约 20 MB（V1.6.8），安装后程序目录约 130 MB</td></tr>
 </table>
 
 <h2>四、安装、升级与卸载</h2>
 <h3>4.1 安装</h3>
 <ol>
-<li>下载 <code>UltimateTool.exe</code> 安装包（国内建议从镜像下载：<a href="https://gitee.com/ooohhhxxx/tool-site/releases/download/latest/UltimateTool.exe">gitee.com/ooohhhxxx/tool-site</a>，约 1.3MB/s；GitHub 源在国内约 44KB/s，较慢）；</li>
+<li>下载 <code>UltimateToolWebUI-Setup-1.6.8.exe</code> 安装包（约 20 MB，见<a href="./index.html">官网首页</a>）；</li>
 <li>若杀毒软件（Defender / 360 / 火绒等）告警，先加入信任/白名单（本工具为个人免费软件，未购买数字签名，告警属误报）；</li>
-<li>双击安装包，按向导提示"下一步"，可自行选择安装路径；</li>
-<li>安装完成后勾选"运行 调试工具"，桌面将生成快捷方式。</li>
+<li>双击安装包，按向导提示"下一步"完成安装。<strong>不需要管理员权限</strong>，程序默认装到 <code>%LOCALAPPDATA%\Programs\UltimateToolWebUI</code>；</li>
+<li>安装完成后可勾选"立即启动"，桌面与开始菜单会生成「调试工具 (Web UI)」快捷方式；</li>
+<li>首次启动需要初始化界面内核，约 5~10 秒，窗口出现后即可使用。</li>
 </ol>
 <h3>4.2 升级</h3>
 <ol>
-<li><strong>推荐</strong>：打开软件 → 设置页 →「检查更新」，检测到新版本后一键下载安装（V1.2.0 起支持）；</li><li>也可以直接下载新版本安装包并运行，安装到<strong>相同目录</strong>即可覆盖升级，无需先卸载；</li>
-<li>连接历史记录、插件启停状态保存在用户目录（<code>~/.ssh_gui_history.json</code>、<code>~/.ssh_gui_plugins.json</code>），升级后自动保留；</li>
-<li>窗口大小与位置记录在 <code>~/.ssh_gui_ui.json</code>，如界面错乱可删除该文件后重启。</li>
+<li><strong>推荐</strong>：打开软件 → 左侧「设置」→「检查更新」→ 发现新版本后点「立即更新」，下载约 150 KB 增量包，几秒完成，关闭重开即生效；</li>
+<li>也可以直接下载新版安装包覆盖安装，装到相同目录即可，无需先卸载；</li>
+<li>配置、连接记录、插件都保存在用户目录（<code>~/.ssh_gui_conf.json</code>、<code>~/.ssh_gui_history.json</code>、<code>~/.ssh_gui_plugins.json</code>），升级不会丢失；</li>
+<li>启动日志在程序目录 <code>logs\app.log</code>，启动异常时请把它提供给维护人员；</li>
 <li>本工具限制为单实例：重复双击快捷方式不会开出第二个窗口，而是把已经在运行的那个切到前台。</li>
 </ol>
 <h3>4.3 卸载</h3>
-<p>控制面板 → 程序和功能 → 调试工具 → 卸载；或运行安装目录下的卸载程序。</p>
+<p>控制面板 → 程序和功能 → 「调试工具 (Web UI)」→ 卸载；或运行安装目录下的 <code>unins000.exe</code>。卸载会一并清理界面缓存目录 <code>data\</code>（首次启动自动生成，可安全删除）；用户目录下的配置、连接记录与插件会保留，重新安装后可直接继续使用。</p>
 
 <h2>五、SSH 远程管理操作流程</h2>
 <h3>5.1 连接服务器</h3>
@@ -369,6 +371,7 @@ code{background:#e2e8f0;padding:2px 6px;border-radius:4px;font-family:Consolas,m
 <h2>十二、版本记录</h2>
 <table>
 <tr><th>版本</th><th>日期</th><th>变更说明</th></tr>
+<tr><td>V1.6.8</td><td>2026-11-06</td><td><strong>Web UI 版首发</strong>。界面全面重写：内置 xterm 真实终端（支持 vim / top）、可视化远程文件管理（双击进目录、上传下载带进度）、多会话标签、左侧导航。新增软件内一键更新（约 150 KB 增量包）。免管理员安装。修复启动「未响应」、连接记录删不掉、当前会话关不掉三个问题。经典版全部能力保留，配置与连接记录与经典版互通。</td></tr>
 <tr><td>V1.6.7</td><td>2026-11-06</td><td>两处视觉打磨，功能与布局不变。① 悬停提示由浅黄底黑实线边框改为深蓝灰卡片（白字、细描边），与整体浅蓝灰配色统一。② 表格选中行由实心蓝底白字改为浅蓝底深字，文字更清晰、斑马纹仍可见；文件列表 / 监控表 / 插件表 / 插件动作列表统一。</td></tr>
 <tr><td>V1.6.6</td><td>2026-11-06</td><td>修两个托盘相关的隐藏问题（仅在「关闭窗口时 = 最小化到托盘」且时机凑巧时碰上）。① 托盘菜单「显示主窗口 / 退出」原从 pystray 线程直接调 root.after，主线程在处理确认框或忙碌时可能卡住/无响应；现统一走主程序 _ui_call 队列。② 托盘 run() 启动后意外退出时，_icon 非空但线程已死，窗口已 withdraw → 变成找不到的后台进程；新增 TrayController.alive 与缩托盘 400ms 后复查，图标不在即恢复窗口、退回「直接退出」并提示。</td></tr>
 <tr><td>V1.6.5</td><td>2026-11-05</td><td>Modbus 页三处观感修正。① 蓝色主按钮（连接 / 执行）比同行普通按钮矮 5px（去掉边框又未补内边距），现与「断开」「添加监控」齐平；该样式全局生效，SSH「新建主机」、串口「打开串口」同步更整齐。② 监控表无点位时中部显示操作提示，有点位自动收起。③「当前值」列改右对齐，数字按位对齐便比较。</td></tr>

@@ -23,10 +23,10 @@
     "version": "1.6.8",
     "date": "2026-11-06",
     "setup": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-Setup-1.6.8.exe",
-    "setup_size": 20071697,
-    "setup_sha256": "397a8a53faf6c6d3da985196512aed59f3e0307124e85d8c7d7ee728a7f9169c",
+    "setup_size": 20070794,
+    "setup_sha256": "d9e22cfeaa26e079d5ee9cb21447ff19e515e0be279fcc83fa28225f9e0d1726",
     "app_zip": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-app-v1.6.8.zip",
-    "app_zip_size": 149653,
-    "notes": "修复启动卡死（stdout 管道阻塞）；连接记录支持删除；会话标签可关闭（先断开再移除）。"
+    "app_zip_size": 149827,
+    "notes": "Web UI 版首发。修复启动未响应、连接记录删不掉、当前会话关不掉；支持软件内一键更新。"
   }
 }
