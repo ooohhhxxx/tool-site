@@ -1,13 +1,13 @@
 {
-  "version": "1.6.7",
-  "date": "2026-11-06",
-  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.7/UltimateTool.exe",
-  "size": 21180584,
-  "sha256": "4f6dad13ce33014abbfe0569b00b7945696024dbfdbb59b2e1f6a2a8bb540c52",
+  "version": "1.6.8",
+  "date": "2026-11-07",
+  "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.8/UltimateTool.exe",
+  "size": 21349302,
+  "sha256": "57374e811f5011ed3bac0af663d1376d3705e607ee381cbbc762627aee50d0d4",
   "mirrors": [
     {
       "name": "Gitee 国内镜像",
-      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.7/UltimateTool.exe"
+      "url": "https://gitee.com/ooohhhxxx/tool-site/releases/download/v1.6.8/UltimateTool.exe"
     },
     {
       "name": "Gitee 最新版",
@@ -18,5 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "两处视觉打磨，功能与布局都不变。① 悬停提示从浅黄底黑实线边框改成深蓝灰卡片（白字、细描边），和整套浅蓝灰配色统一。② 表格选中行从实心蓝底白字改成浅蓝底深字，文字更清楚、斑马纹在选中行也还看得见；文件列表、监控表、插件表和插件动作列表一起统一。"
+  "notes": "多标签页的三组问题修掉，都在「开了两个以上 SSH 标签」时才碰得上。① 终端查找条（Ctrl+F）、常用命令下拉、文件过滤框以前被「最后打开的那个标签」独占：在旧标签里按 Ctrl+F 会直接报错，把最新的标签关掉之后这几处点了也没反应；现在每个标签各有一套，「存入常用命令」也会同步到所有标签。② 上传/下载的进度条、状态文字和「取消」按钮以前跟着当前标签走：A 在传、切到 B 之后 A 的进度就不再更新，在 B 点取消掐掉的却是 A 的传输，传完刷新的还是 B 的目录；现在全部钉在发起传输的那个标签上，各标签可以同时各传各的，同一标签重复点上传会被挡下并说明原因（以前两趟会互相盖进度，第二趟还会把第一趟刚按下的取消清掉）。③ 传输结束后进度行会留 5 秒再收起：「✅ 上传完成」「⏹ 已取消（前 3 个已上传，其余未传）」这些结果以前写在马上就收起的那一行上，等于没告诉你这一趟到底成没成。"
 }
