@@ -23,10 +23,10 @@
     "version": "1.6.7",
     "date": "2026-11-06",
     "setup": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-Setup-1.6.7.exe",
-    "setup_size": 20070710,
-    "setup_sha256": "104a80f3ccb1d16b694713588c217fea0a3e72b44dc45ba1f18e287124ee8bb0",
+    "setup_size": 20068888,
+    "setup_sha256": "c9af35bf71352d1952c86ff5f902b644469f69f65b00951e8d8ce85f8c6e1662",
     "app_zip": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-app-v1.6.7.zip",
-    "app_zip_size": 148337,
+    "app_zip_size": 148909,
     "notes": "Web UI 版首次发布：xterm 终端、SFTP 文件管理、Modbus/串口、插件、托盘、单实例、高 DPI。"
   }
 }
