@@ -18,15 +18,5 @@
       "url": "https://ooohhhxxx.github.io/tool-site/UltimateTool.exe"
     }
   ],
-  "notes": "两处视觉打磨，功能与布局都不变。① 悬停提示从浅黄底黑实线边框改成深蓝灰卡片（白字、细描边），和整套浅蓝灰配色统一。② 表格选中行从实心蓝底白字改成浅蓝底深字，文字更清楚、斑马纹在选中行也还看得见；文件列表、监控表、插件表和插件动作列表一起统一。",
-  "webui": {
-    "version": "1.6.8",
-    "date": "2026-11-06",
-    "setup": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-Setup-1.6.8.exe",
-    "setup_size": 20070794,
-    "setup_sha256": "d9e22cfeaa26e079d5ee9cb21447ff19e515e0be279fcc83fa28225f9e0d1726",
-    "app_zip": "https://ooohhhxxx.github.io/tool-site/UltimateToolWebUI-app-v1.6.8.zip",
-    "app_zip_size": 149827,
-    "notes": "Web UI 版首发。修复启动未响应、连接记录删不掉、当前会话关不掉；支持软件内一键更新。"
-  }
+  "notes": "两处视觉打磨，功能与布局都不变。① 悬停提示从浅黄底黑实线边框改成深蓝灰卡片（白字、细描边），和整套浅蓝灰配色统一。② 表格选中行从实心蓝底白字改成浅蓝底深字，文字更清楚、斑马纹在选中行也还看得见；文件列表、监控表、插件表和插件动作列表一起统一。"
 }
